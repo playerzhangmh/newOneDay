@@ -117,6 +117,12 @@ public class ReminderdbDao {
         int update = contentResolver.update(urireminder, values, "id=?", new String[]{remind_id + ""});
         return update;
     }
+    //用户手动使其inactive
+    public void toInactive(int remind_id){
+        ContentValues values=new ContentValues();
+        values.put("reminder_active",1);
+        contentResolver.update(urireminder,values,"id=?", new String[]{remind_id + ""});
+    }
     //根据repeat来修改active
     public void updateActive(ReminderInfo info){
         String reminder_date = info.getReminder_date();

@@ -197,7 +197,7 @@ public class ReminderdbDao {
     }
 
     //查找，根据日期
-    public List<ReminderInfo> getReminderItemByDate(String reminder_date){
+    public List<ReminderInfo> getReminderItemByDate(String reminder_date){ //yy-MM-dd
         List<ReminderInfo> reminderInfos=new ArrayList<>();
         Cursor query = contentResolver.query(urireminder3, null, "reminder_date=?", new String[]{reminder_date}, null);
         while (query.moveToNext()){
@@ -206,6 +206,35 @@ public class ReminderdbDao {
         }
         return reminderInfos;
     }
+    //精确时间查找，根据日期,date为日期毫秒，用于提醒用户使用
+    public List<ReminderInfo> getReminderItemByDatedetail(long date){ //ms
+        long datetop=date+5000l;
+        long datebottom=date-5000l;
+        String datetops = ReminderUtis.longFormaterTostring(datetop);
+        Log.v(TAG,datetops);
+        String datebottoms = ReminderUtis.longFormaterTostring(datebottom);
+        Log.v(TAG,datebottoms);
+        String[] splittop = datetops.split(" ");
+        String[] splitbottom = datebottoms.split(" ");
+        ReminderDatadb helper=new ReminderDatadb(context,"reminder.db",null,VERSION);
+        SQLiteDatabase db = helper.getReadableDatabase();
+        String querys="";
+        if(splitbottom[0].equals(splittop[0])){
+            querys="select * from reminderInfo where reminder_date='"+splitbottom[0]+"' and reminder_time between '"+splitbottom[1]+"' and '"+splittop[1]+"' order by reminder_time desc;";
+        }else {
+            querys="select * from reminderInfo where reminder_date='"+splittop[0]+"' and reminder_time between '00:00:00' and '"+splittop[1]+"'"+
+                    " Union select * from reminderInfo where reminder_date='"+splitbottom[0]+"' and reminder_time between '"+splitbottom[1]+"' and '23:59:59' order by reminder_time desc;";
+        }
+        List<ReminderInfo> reminderInfos=new ArrayList<>();
+        Log.v(TAG,querys);
+        Cursor query = db.rawQuery(querys,null);
+        while (query.moveToNext()){
+            ReminderInfo info = getReminderInfo(query);
+            reminderInfos.add(info);
+        }
+        return reminderInfos;
+    }
+
     //查找，过期的reminder或者当天未过期的reminder
     public List<ReminderInfo> getInactiveReminders(int inactiveOrdailyactiveflag){
         String currentdate = ReminderUtis.getCurrentdate();

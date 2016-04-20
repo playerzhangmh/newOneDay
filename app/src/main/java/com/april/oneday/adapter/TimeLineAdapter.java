@@ -29,7 +29,6 @@ public class TimeLineAdapter extends BaseAdapter {
     public TimeLineAdapter(List<MediaInfo> list, Context context) {
         this.list = list;
         this.context = context;
-
     }
 
     @Override
@@ -138,9 +137,7 @@ public class TimeLineAdapter extends BaseAdapter {
         } else {//复用converView缓存
             switch (type) {
                 case TYPE_TEXT:
-
                         textHolder = (TextHolder) convertView.getTag();
-
                     break;
 
                 case TYPE_SINGLE_PHOTO:
@@ -148,17 +145,12 @@ public class TimeLineAdapter extends BaseAdapter {
                     break;
 
                 case TYPE_TWO_PHOTOS:
-
                         twoPhotosHolder = (TwoPhotosHolder) convertView.getTag();
-
                     break;
 
                 case TYPE_THREE_PHOTOS:
-
                         threePhotosHolder = (ThreePhotosHolder) convertView.getTag();
-
                     break;
-
             }
         }
 
@@ -215,11 +207,7 @@ public class TimeLineAdapter extends BaseAdapter {
 
                 break;
         }
-
-
         return convertView;
-
-
     }
 }
 

@@ -1,15 +1,23 @@
 package com.april.oneday.fragment;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.april.oneday.R;
+import com.april.oneday.activity.EditActivity;
+import com.april.oneday.activity.FullImageActivity;
 import com.april.oneday.activity.MainActivity;
 import com.april.oneday.adapter.TimeLineAdapter;
 import com.april.oneday.bean.MediaInfo;
@@ -33,6 +41,9 @@ public class TimeLineFragment extends Fragment {
     private final int MAXNUM=10;
     //起始位置
     private int startIndex = 0;
+    private ImageButton ib_timeline;
+    private String basepath;
+
     public TimeLineFragment() {
 
     }
@@ -43,9 +54,6 @@ public class TimeLineFragment extends Fragment {
 
         dao = new MediaDao(getActivity());
         mActivity = (MainActivity) getActivity();
-
-
-
     }
 
     @Nullable
@@ -55,6 +63,9 @@ public class TimeLineFragment extends Fragment {
 
         View inflate = inflater.inflate(R.layout.fragment_timeline, container,false);
         lv_timeline = (ListView) inflate.findViewById(R.id.lv_timeline);
+        /*找到添加键*/
+        ib_timeline = (ImageButton) inflate.findViewById(R.id.ib_timeline);
+
         fillData();
         lv_timeline.setOnScrollListener(new AbsListView.OnScrollListener() {
             @Override
@@ -78,6 +89,7 @@ public class TimeLineFragment extends Fragment {
             }
         });
 
+        InitEvent();
         return inflate;
     }
 
@@ -117,4 +129,42 @@ public class TimeLineFragment extends Fragment {
         }.execute();
     }
 
+    /**
+     * 设置add按钮的点击事件和listview的Item点击事件
+     */
+    public void InitEvent()
+    {
+        ib_timeline.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(mActivity,EditActivity.class));
+            }
+        });
+
+        lv_timeline.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                int pic_count = list.get(position).getType();
+                Intent intent = new Intent(mActivity, FullImageActivity.class);
+
+                MediaInfo info = list.get(position);
+                if (pic_count>0&&pic_count<4)
+                {
+                    switch (pic_count)
+                    {
+                        case 1:
+                            intent.putExtra("pic",new String[]{info.getPic1(),info.getDate()});
+                            break;
+                        case 2:
+                            intent.putExtra("pic",new String[]{info.getPic1(),info.getPic2(),info.getDate()});
+                            break;
+                        case 3:
+                            intent.putExtra("pic",new String[]{info.getPic1(),info.getPic2(),info.getPic3(),info.getDate()});
+                            break;
+                    }
+                    startActivity(intent);
+                }
+            }
+        });
+    }
 }

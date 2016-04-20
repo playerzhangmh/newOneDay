@@ -1,14 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <include layout="@layout/titlebar"/>
+    <include layout="@layout/titlebar"
+        android:id="@+id/titlebar"/>
 
     <TextView
+        android:layout_below="@id/titlebar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="我是行程计划界面"
         android:textSize="30sp"/>
-</LinearLayout>
+
+    <android.support.v4.view.ViewPager
+        android:layout_below="@id/titlebar"
+        android:id="@+id/vp_schedule_reminder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </android.support.v4.view.ViewPager>
+
+    <android.support.v4.view.ViewPager
+        android:visibility="gone"
+        android:layout_below="@id/titlebar"
+        android:id="@+id/vp_schedule_routine"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </android.support.v4.view.ViewPager>
+
+    <ImageButton
+        android:id="@+id/ib_createSchedule"
+        android:background="@null"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/add"
+        android:scaleType="centerInside"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+</RelativeLayout>

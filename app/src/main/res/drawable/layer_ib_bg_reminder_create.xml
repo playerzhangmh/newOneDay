@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/shape_ib_bg_blue"/>
+    <item android:drawable="@drawable/tick_white" />
+
+</layer-list>

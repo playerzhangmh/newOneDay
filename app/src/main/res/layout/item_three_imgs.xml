@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:weightSum="1">
+
+
+    <View
+        android:id="@+id/line_pre"
+        android:layout_width="3dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="40dp"
+        android:background="#21eb7c"/>
+    <ImageView
+        android:id="@+id/iv_type"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="30dp"
+        android:layout_below="@id/line_pre"
+        android:src="@drawable/img_icon"/>
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_type"
+        android:layout_marginLeft="10dp"
+        android:text="2016.05.01"/>
+
+    <View
+        android:id="@+id/line_aft"
+        android:layout_below="@id/tv_time"
+        android:layout_width="3dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="5dp"
+        android:background="#21eb7c"/>
+
+    <RelativeLayout
+        android:layout_toRightOf="@id/iv_type"
+        android:layout_marginLeft="30dp"
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/content_bg">
+
+
+        <LinearLayout
+            android:id="@+id/ll_imgs"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+            <ImageView
+                android:id="@+id/img_1"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:scaleType="centerCrop"
+                android:background="@drawable/puppy_dogs_01"/>
+
+            <ImageView
+                android:id="@+id/img_2"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:scaleType="centerCrop"
+                android:background="@drawable/puppy_dogs_01"
+                />
+            <ImageView
+                android:id="@+id/img_3"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:scaleType="centerCrop"
+                android:background="@drawable/puppy_dogs_01"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ll_imgs"
+            android:maxWidth="160dp"
+            android:maxLines="1"
+            android:layout_marginTop="5dp"
+            android:layout_centerHorizontal="true"
+            android:text="天气不错,去公园耍耍吧"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

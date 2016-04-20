@@ -5,7 +5,6 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.os.Environment;
-import android.view.View;
 
 import com.april.oneday.R;
 import com.april.oneday.fragment.ScheduleFragment;
@@ -42,19 +41,6 @@ public class MainActivity extends Activity {
     }
 
 
-    /**
-     * 按钮点击事件
-     */
-    public void onClick(View view){
-        switch (view.getId()){
-            case R.id.btn_main_timeline://显示时间轴页面
-                showTimeline();
-                break;
-            case R.id.btn_main_schedule://显示行程规划页面
-                showSchedule();
-                break;
-        }
-    }
 
     /**
      * 显示时timeLineFragment,隐藏scheduleFragment

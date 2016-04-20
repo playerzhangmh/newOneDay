@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.april.oneday.R;
@@ -33,6 +34,8 @@ public class TimeLineFragment extends Fragment {
     private final int MAXNUM=10;
     //起始位置
     private int startIndex = 0;
+    private Button btn_schedule;
+
     public TimeLineFragment() {
 
     }
@@ -78,6 +81,10 @@ public class TimeLineFragment extends Fragment {
             }
         });
 
+        btn_schedule = (Button) inflate.findViewById(R.id.btn_schedule);
+
+        btnScheduleOnclick();
+
         return inflate;
     }
 
@@ -117,4 +124,14 @@ public class TimeLineFragment extends Fragment {
         }.execute();
     }
 
+
+    private void btnScheduleOnclick(){
+        btn_schedule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //让mActivity切换布局
+                mActivity.showSchedule();
+            }
+        });
+    }
 }

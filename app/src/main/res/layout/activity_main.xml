@@ -6,30 +6,6 @@
     android:orientation="vertical"
     tools:context="com.april.oneday.activity.MainActivity">
 
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <Button
-            android:layout_marginLeft="100dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="记录"
-            android:id="@+id/btn_main_timeline"
-            android:onClick="onClick"
-            />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="行程"
-            android:id="@+id/btn_main_schedule"
-            android:onClick="onClick"
-            />
-
-    </LinearLayout>
-
     <FrameLayout
         android:id="@+id/fl_content"
         android:layout_width="match_parent"

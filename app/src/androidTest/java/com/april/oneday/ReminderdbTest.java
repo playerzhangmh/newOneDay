@@ -15,8 +15,8 @@ import java.util.List;
 public class ReminderdbTest extends AndroidTestCase {
     public void testInsert(){
         ReminderdbDao dao=new ReminderdbDao(getContext());
-        for(int i=0;i<10;i++){
-            dao.insertReminder("eating","2016-06-19","21:00:19",2,"i love eating","ringpath",1,3,3424234,"red");
+        for(int i=0;i<5;i++){
+            dao.insertReminder("ssadeatingsad","2016-06-19","21:00:19",2,"i love eating","ringpath",1,3,3424234,"red");
         }
        // dao.insertReminder("eating","2016-3-25","19:00:09",1,"i love eating","ringpath",1,3,3424234,"red");
     }
@@ -49,7 +49,8 @@ public class ReminderdbTest extends AndroidTestCase {
     public void testQueryByname(){
         ReminderdbDao dao=new ReminderdbDao(getContext());
         List<ReminderInfo> eating = dao.getReminderItemByName("eating");
-        assertTrue(50==eating.size());
+        Log.v("ReminderdbTest",eating.toString());
+        assertTrue(10==eating.size());
 
     }
     public void testSortreminder(){

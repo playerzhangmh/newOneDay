@@ -31,11 +31,12 @@ public class ReminderdbDao {
     public static final int SortFlag_YEAR =-1 ;
     public static final int SortFlag_MONTH =-2 ;
     public static final int SortFlag_DAY =-3 ;
+    //提醒重复类型
     public static final int REPEAT_DAY = 3;
     public static final int REPEAT_MONTH = 2;
     public static final int REPEAT_YEAR = 1;
+    public static final int NO_REPEAT = 0;
     private static final String TAG = "ReminderdbDao";
-    private static final int NO_REPEAT = 0;
 
     public final ContentResolver contentResolver;
     public final Uri urireminder;
@@ -257,7 +258,10 @@ public class ReminderdbDao {
     public List<ReminderInfo> getReminderItemByName(String reminder_name){
         List<ReminderInfo> reminderInfos=new ArrayList<>();
         List<String> list=new ArrayList<>();
-        Cursor datequery = contentResolver.query(urireminder2, new String[]{"reminder_date"}, "reminder_name=?", new String[]{reminder_name}, null);
+        ReminderDatadb helper=new ReminderDatadb(context,"reminder.db",null,VERSION);
+        SQLiteDatabase db = helper.getReadableDatabase();
+        String queryname="select reminder_date from reminderInfo where reminder_name like '%"+reminder_name+"%' order by reminder_date desc";
+        Cursor datequery=db.rawQuery(queryname,null);
         while (datequery.moveToNext()){
             String dates = datequery.getString(0);
             if(!list.contains(dates)){

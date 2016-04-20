@@ -15,6 +15,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <provider
+            android:authorities="com.oneday.reminder"
+            android:name=".provider.Reminder_ContentProvider"/>
     </application>
 
 </manifest>

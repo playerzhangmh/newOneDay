@@ -6,6 +6,7 @@ import android.util.Log;
 
 import com.april.oneday.bean.ReminderInfo;
 import com.april.oneday.dao.ReminderdbDao;
+import com.april.oneday.utils.ReminderUtis;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ public class ReminderdbTest extends AndroidTestCase {
     public void testInsert(){
         ReminderdbDao dao=new ReminderdbDao(getContext());
         for(int i=0;i<5;i++){
-            dao.insertReminder("ssadeatingsad","2016-06-19","21:00:19",2,"i love eating","ringpath",1,3,3424234,"red");
+            dao.insertReminder("ssadeatingsad","2016-11-02","00:00:01",2,"i love eating","ringpath",1,3,3424234,"red");
         }
        // dao.insertReminder("eating","2016-3-25","19:00:09",1,"i love eating","ringpath",1,3,3424234,"red");
     }
@@ -73,6 +74,16 @@ public class ReminderdbTest extends AndroidTestCase {
     public void testUpdateafterNotify(){
         ReminderdbDao dao=new ReminderdbDao(getContext());
         dao.updateActive(new ReminderInfo(185,"eating","2016-06-19","21:00:19",2,"i love eating","ringpath",1,3,3424234,"red",0));
+    }
+    public void testdetailQuerybydatetime(){
+        ReminderdbDao dao=new ReminderdbDao(getContext());
+        long l = System.currentTimeMillis();
+        String s = ReminderUtis.longFormaterTostring(l);
+        long l1 = ReminderUtis.stringFormaterTolong("2016-11-01 23:59:58");
+        Log.v("ReminderdbTest",s);
+        List<ReminderInfo> reminderItemByDatedetail = dao.getReminderItemByDatedetail(l1);
+        Log.v("ReminderdbTest",reminderItemByDatedetail.toString());
+
     }
 
 }

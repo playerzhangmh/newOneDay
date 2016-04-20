@@ -20,6 +20,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.Reminder_Create1" />
+        <activity android:name=".activity.Reminder_Create2"/>
         <provider
             android:authorities="com.oneday.reminder"
             android:name=".provider.Reminder_ContentProvider"/>

@@ -3,4 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="appthemecolor_blue">#009CFE</color>
+    <color name="appthemecolor_grey">#cacaca</color>
+    <color name="dividerLine">#50000000</color>
 </resources>

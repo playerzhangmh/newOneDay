@@ -8,7 +8,7 @@
     <View
         android:id="@+id/line_pre"
         android:layout_width="3dp"
-        android:layout_height="70dp"
+        android:layout_height="80dp"
         android:layout_marginLeft="40dp"
         android:background="#21eb7c"/>
     <ImageView
@@ -31,7 +31,7 @@
         android:id="@+id/line_aft"
         android:layout_below="@id/tv_time"
         android:layout_width="3dp"
-        android:layout_height="70dp"
+        android:layout_height="80dp"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="5dp"
         android:background="#21eb7c"/>

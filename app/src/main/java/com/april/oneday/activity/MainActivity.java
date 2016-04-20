@@ -4,11 +4,14 @@ import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.View;
 
 import com.april.oneday.R;
 import com.april.oneday.fragment.ScheduleFragment;
 import com.april.oneday.fragment.TimeLineFragment;
+
+import java.io.File;
 
 public class MainActivity extends Activity {
 
@@ -21,6 +24,9 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //初始化目录
+        initDir();
 
         fm = getFragmentManager();
         FragmentTransaction transaction = fm.beginTransaction();
@@ -71,6 +77,24 @@ public class MainActivity extends Activity {
         transaction.show(scheduleFragment);
         transaction.commit();
 
+    }
+
+    /**
+     * 初始化文件目录,应该放在splashactivity中,只在用户第一次打开是运行
+     */
+
+    public void initDir(){
+        File dir = new File(Environment.getExternalStorageDirectory(),"oneday");
+        if (!dir.exists()){
+            dir.mkdirs();
+            File imgDir = new File(dir,"pic");
+            File audioDir = new File(dir,"audio");
+            File videoDir = new File(dir,"video");
+            imgDir.mkdir();
+            audioDir.mkdir();
+            videoDir.mkdir();
+
+        }
     }
 
 }

@@ -8,7 +8,7 @@
     <View
         android:id="@+id/line_pre"
         android:layout_width="3dp"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:layout_marginLeft="40dp"
         android:background="#21eb7c"/>
 
@@ -32,14 +32,14 @@
         android:id="@+id/line_aft"
         android:layout_below="@id/tv_time"
         android:layout_width="3dp"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="5dp"
         android:background="#21eb7c"/>
 
     <RelativeLayout
         android:layout_toRightOf="@id/iv_type"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="40dp"
         android:layout_centerVertical="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
             android:maxWidth="200dp"
             android:maxLines="3"
             android:ellipsize="end"
-            android:text="测试数据写史书驾驶的健康"/>
+            android:text="测试数据写史书驾驶圣达菲健康盖伦和金坷垃士大夫的健康"/>
 
     </RelativeLayout>
 

@@ -5,7 +5,6 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.os.Environment;
-import android.view.View;
 
 import com.april.oneday.R;
 import com.april.oneday.fragment.ScheduleFragment;

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!--  part 1  timeLine-->
+    <ImageView
+        android:layout_width="5dp"
+        android:layout_height="match_parent"
+        android:background="@color/appthemecolor_blue"
+        android:layout_marginLeft="40dp"
+        android:id="@+id/iv_schedule_timeLine"/>
+    <!-- part 2 routine -->
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lv_schedule"/>
+
+</FrameLayout>

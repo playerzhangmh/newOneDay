@@ -1,9 +1,14 @@
 package com.april.oneday.bean;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.io.Serializable;
+
 /**
  * Created by wangtongyu on 2016/4/19.
  */
-public class MediaInfo {
+public class MediaInfo implements Serializable {
     private int type;
     private String desc="";
     private String date="";
@@ -110,4 +115,5 @@ public class MediaInfo {
                 ", video='" + video + '\'' +
                 '}';
     }
+
 }

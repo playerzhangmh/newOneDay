@@ -21,6 +21,7 @@ public class BasePage
     public ImageButton ib_pic1page_config;
     public ImageView iv_pic1page_show;
     public TextView tv_pic1page_date;
+    public TextView tv_fullimage_showtext;
 
     public BasePage(FullImageActivity fullImageActivity)
     {
@@ -39,15 +40,14 @@ public class BasePage
         ib_pic1page_config = (ImageButton) pageview.findViewById(R.id.ib_pic1page_config);
         iv_pic1page_show = (ImageView) pageview.findViewById(R.id.iv_pic1page_show);
         tv_pic1page_date = (TextView) pageview.findViewById(R.id.tv_pic1page_date);
+        tv_fullimage_showtext = (TextView) pageview.findViewById(R.id.tv_fullimage_showtext);
+
 
         return  pageview;
     }
 
     public void InitData(){}
-    public void InitEvent()
-    {
-
-    }
+    public void InitEvent() {}
 
     public View getPageview()
     {

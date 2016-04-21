@@ -31,6 +31,8 @@ import java.util.List;
  */
 public class TimeLineFragment extends Fragment {
 
+    private static final int REQUEST_CODE_FULLIMAGE =100 ;
+    private static final int REQUEST_CODE_EDIT =1000 ;
     MainActivity mActivity;
     private List<MediaInfo> list;
     private MediaDao dao;
@@ -43,6 +45,7 @@ public class TimeLineFragment extends Fragment {
     private int startIndex = 0;
     private ImageButton ib_timeline;
     private String basepath;
+    private int clickedItem;
 
     public TimeLineFragment() {
 
@@ -137,34 +140,39 @@ public class TimeLineFragment extends Fragment {
         ib_timeline.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(mActivity,EditActivity.class));
+                startActivityForResult(new Intent(mActivity,EditActivity.class),REQUEST_CODE_EDIT);
             }
         });
 
         lv_timeline.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                int pic_count = list.get(position).getType();
+                clickedItem =position;
                 Intent intent = new Intent(mActivity, FullImageActivity.class);
 
                 MediaInfo info = list.get(position);
-                if (pic_count>0&&pic_count<4)
-                {
-                    switch (pic_count)
-                    {
-                        case 1:
-                            intent.putExtra("pic",new String[]{info.getPic1(),info.getDate()});
-                            break;
-                        case 2:
-                            intent.putExtra("pic",new String[]{info.getPic1(),info.getPic2(),info.getDate()});
-                            break;
-                        case 3:
-                            intent.putExtra("pic",new String[]{info.getPic1(),info.getPic2(),info.getPic3(),info.getDate()});
-                            break;
-                    }
-                    startActivity(intent);
-                }
+
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("mediainfo",info);
+                intent.putExtras(bundle);
+                startActivityForResult(intent,REQUEST_CODE_FULLIMAGE);
             }
         });
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode==100)
+        {
+            list.remove(clickedItem);
+            timeLineAdapter.notifyDataSetChanged();
+        }
+        else if (requestCode==1000)
+        {
+            startIndex=0;
+            list.clear();
+            fillData();
+        }
     }
 }

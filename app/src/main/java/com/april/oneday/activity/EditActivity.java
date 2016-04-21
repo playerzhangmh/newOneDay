@@ -48,6 +48,7 @@ public class EditActivity extends Activity {
     private AMapLocationListener mLocationListener=null;
     private AMapLocationClientOption mLocationOption=null;*/
     private TextView tv_edit_location;
+    private String des;
 
 
     @Override
@@ -160,15 +161,24 @@ public class EditActivity extends Activity {
         bt_edit_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                saveSelectedPic();
-                insertToDatabase();
-                Toast.makeText(EditActivity.this, "发布成功", Toast.LENGTH_SHORT).show();
 
-               /* mLocationClient.stopLocation();
-                mLocationClient.onDestroy();*/
-                finish();
+                des =  et_edit_des.getText().toString();
+                if (mSelectPath.isEmpty()&&des.isEmpty())
+                {
+                    Toast.makeText(EditActivity.this, "没有输入内容", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    saveSelectedPic();
+                    insertToDatabase();
+                    Toast.makeText(EditActivity.this, "发布成功", Toast.LENGTH_SHORT).show();
+                    /*mLocationClient.stopLocation();
+                    mLocationClient.onDestroy();*/
+                    finish();
+                }
             }
         });
+
         selectPic();
     }
 
@@ -301,7 +311,6 @@ public class EditActivity extends Activity {
         int type = 0;
 
          /*将输入的文字取出来*/
-        String des = et_edit_des.getText().toString();
 
         if (mSelectPath.size()!=0)
         {
@@ -332,7 +341,6 @@ public class EditActivity extends Activity {
         String pattern = "yyyy.MM.dd";
         SimpleDateFormat format=new SimpleDateFormat(pattern);
         String currentdate = format.format(date);
-
         MediaDao mediaDao = new MediaDao(this);
         mediaDao.addMediaInfo(new MediaInfo(type,des,currentdate,picpath_1,picpath_2,picpath_3,"",""));
     }

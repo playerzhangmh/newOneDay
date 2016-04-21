@@ -14,8 +14,9 @@
         <ImageButton
             android:layout_height="match_parent"
             android:layout_width="20dp"
-            android:layout_margin="15dp"
-            android:background="@drawable/back1"
+            android:layout_margin="10dp"
+            android:src="@drawable/back1"
+            android:background="@drawable/bt_bg_select"
             android:id="@+id/ib_edit_back"/>
     </LinearLayout>
 
@@ -64,32 +65,43 @@
         <ImageButton
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:background="@drawable/pic"
+            android:background="@drawable/pc1"
             android:layout_marginLeft="10dp"
             android:id="@+id/ib_edit_pic"
-            android:layout_centerVertical="true" />
+            android:layout_centerVertical="true"
+            />
         <ImageButton
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:background="@drawable/music"
-            android:layout_marginLeft="10dp"
+            android:background="@drawable/record"
+            android:layout_marginLeft="5dp"
             android:id="@+id/ib_edit_record"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@id/ib_edit_pic"/>
+
+        <ImageButton
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:background="@drawable/location"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/ib_edit_location"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/ib_edit_record"/>
+
         <ImageButton
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:background="@drawable/video"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="5dp"
             android:id="@+id/ib_edit_video"
             android:layout_centerVertical="true"
-            android:layout_toRightOf="@id/ib_edit_record"/>
+            android:layout_toRightOf="@id/ib_edit_location"/>
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:layout_alignParentRight="true"
-            android:background="@drawable/save"
+            android:background="@drawable/save_bt_selecter"
             android:text="发布"
             android:id="@+id/bt_edit_save"
             />

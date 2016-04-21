@@ -1,9 +1,7 @@
 package com.april.oneday.Page;
 
 import android.view.View;
-import android.widget.Toast;
 
-import com.april.oneday.R;
 import com.april.oneday.activity.FullImageActivity;
 
 

@@ -11,8 +11,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.april.oneday.R;
@@ -23,6 +26,8 @@ import com.april.oneday.adapter.TimeLineAdapter;
 import com.april.oneday.bean.MediaInfo;
 import com.april.oneday.dao.MediaDao;
 import com.april.oneday.utils.MyAsycnTaks;
+import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
+import com.makeramen.segmented.SegmentedRadioGroup;
 
 import java.util.List;
 
@@ -46,6 +51,9 @@ public class TimeLineFragment extends Fragment {
     private ImageButton ib_timeline;
     private String basepath;
     private int clickedItem;
+    private Button btnMenu;
+    private SegmentedRadioGroup rg_option;
+    private RadioButton rb_timeline;
 
     public TimeLineFragment() {
 
@@ -54,7 +62,6 @@ public class TimeLineFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         dao = new MediaDao(getActivity());
         mActivity = (MainActivity) getActivity();
     }
@@ -62,13 +69,13 @@ public class TimeLineFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-
         View inflate = inflater.inflate(R.layout.fragment_timeline, container,false);
+        rg_option = (SegmentedRadioGroup) inflate.findViewById(R.id.rg_option);
+        rb_timeline = (RadioButton) inflate.findViewById(R.id.rb_timeline);
+        btnMenu = (Button) inflate.findViewById(R.id.btn_titalbar_menu);
         lv_timeline = (ListView) inflate.findViewById(R.id.lv_timeline);
         /*找到添加键*/
         ib_timeline = (ImageButton) inflate.findViewById(R.id.ib_timeline);
-
         fillData();
         lv_timeline.setOnScrollListener(new AbsListView.OnScrollListener() {
             @Override
@@ -92,10 +99,89 @@ public class TimeLineFragment extends Fragment {
             }
         });
 
+        lv_timelineOscroll();
+        rgOptionOnclick();
+        initSlidingMenu();
+        btnMenuOnClick();
         InitEvent();
         return inflate;
     }
 
+    /**
+     * 菜单按钮点击事件,展开关闭侧边栏
+     */
+    private void btnMenuOnClick() {
+        this.btnMenu.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View paramView) {
+                mActivity.getSlidingMenu().toggle();
+            }
+
+        });
+    }
+
+    /**
+     * listView滑动监听
+     */
+
+    private void lv_timelineOscroll() {
+        lv_timeline.setOnScrollListener(new AbsListView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(AbsListView absListView, int scrollState) {
+                if (scrollState == AbsListView.OnScrollListener.SCROLL_STATE_IDLE) {
+                    //获取界面显示最后一个条目
+                    int position = lv_timeline.getLastVisiblePosition();//获取界面显示最后一个条目,返回的时候条目的位置
+                    //判断是否是查询数据的最后一个数据  20   0-19
+                    if (position == list.size()-1) {
+                        //加载下一波数据
+                        //更新查询的其实位置   0-19    20-39
+                        startIndex+=MAXNUM;
+                        fillData();
+                    }
+                }
+            }
+
+            @Override
+            public void onScroll(AbsListView absListView, int i, int i1, int i2) {
+
+            }
+        });
+    }
+
+
+    /**
+     * radiogroup点击监听
+     */
+    private void rgOptionOnclick() {
+        rg_option.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            public void onCheckedChanged(RadioGroup paramRadioGroup, int paramInt) {
+                mActivity.showSchedule();
+                initSlidingMenu();
+            }
+        });
+    }
+
+    /**
+     * 初始化侧边栏
+     */
+    public void initSlidingMenu() {
+        SlidingMenu menu = mActivity.getSlidingMenu();
+        mActivity.setBehindContentView(R.layout.slidingmenu_timeline);
+        menu.setBehindOffset(200);
+        menu.setMode(SlidingMenu.LEFT);
+        menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+    }
+
+    /**
+     * fragment隐藏显示状态监听
+     */
+    public void onHiddenChanged(boolean hidden)
+    {
+
+        if (this.rb_timeline != null){
+            rb_timeline.toggle();
+        }
+
+    }
 
 
     //初始化数据
@@ -104,7 +190,6 @@ public class TimeLineFragment extends Fragment {
 
             @Override
             public void preTask() {
-
             }
 
             @Override
@@ -163,7 +248,7 @@ public class TimeLineFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode==100)
+        if (requestCode==100&&resultCode==500)
         {
             list.remove(clickedItem);
             timeLineAdapter.notifyDataSetChanged();

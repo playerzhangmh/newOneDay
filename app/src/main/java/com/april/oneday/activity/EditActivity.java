@@ -34,6 +34,7 @@ public class EditActivity extends Activity {
     private ImageButton ib_edit_pic;
     private Button bt_edit_save;
     private ArrayList<String> mSelectPath=new ArrayList<>();
+    private ArrayList<String> picNameList=new ArrayList<>();
 
     private static final int REQUEST_IMAGE = 2;
     boolean showCamera=true;
@@ -49,6 +50,7 @@ public class EditActivity extends Activity {
     private AMapLocationClientOption mLocationOption=null;*/
     private TextView tv_edit_location;
     private String des;
+    private String picname;
 
 
     @Override
@@ -262,6 +264,8 @@ public class EditActivity extends Activity {
             String SD_path = Environment.getExternalStorageDirectory().getAbsolutePath();
             Date date = new Date();
             long time = date.getTime();
+            picname = "pic" + time + ".jpg";
+            picNameList.add(picname);
             try
             {
                  /*保存的目标路径*/
@@ -319,29 +323,29 @@ public class EditActivity extends Activity {
                 switch (i)
                 {
                     case 0:
-                        picpath_1=mSelectPath.get(i);
+                        picpath_1=picNameList.get(i);
                         type=1;
                         break;
                     case 1:
-                        picpath_2=mSelectPath.get(i);
+                        picpath_2=picNameList.get(i);
                         type=2;
                         break;
                     case 2:
-                        picpath_3=mSelectPath.get(i);
+                        picpath_3=picNameList.get(i);
                         type=3;
                         break;
                 }
+
+                /*获取当前的时间*/
+                /*yyyy.MM.dd hh:mm:ss  年月日时分秒*/
+                long l = System.currentTimeMillis();
+                Date date = new Date(l);
+                String pattern = "yyyy.MM.dd";
+                SimpleDateFormat format=new SimpleDateFormat(pattern);
+                String currentdate = format.format(date);
+                MediaDao mediaDao = new MediaDao(this);
+                mediaDao.addMediaInfo(new MediaInfo(type,des,currentdate,picpath_1,picpath_2,picpath_3,"",""));
             }
         }
-
-        /*获取当前的时间*/
-        /*yyyy.MM.dd hh:mm:ss  年月日时分秒*/
-        long l = System.currentTimeMillis();
-        Date date = new Date(l);
-        String pattern = "yyyy.MM.dd";
-        SimpleDateFormat format=new SimpleDateFormat(pattern);
-        String currentdate = format.format(date);
-        MediaDao mediaDao = new MediaDao(this);
-        mediaDao.addMediaInfo(new MediaInfo(type,des,currentdate,picpath_1,picpath_2,picpath_3,"",""));
     }
 }

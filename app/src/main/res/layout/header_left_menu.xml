@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:roundimg="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="#15d6dd"
+    android:layout_height="wrap_content">
+
+    <com.april.oneday.view.RoundImageView
+        android:layout_margin="10dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        roundimg:type="round"
+        roundimg:borderRadius="50dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/defaultpic"/>
+    <TextView
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="昵称"
+        android:gravity="center"
+        android:textSize="25sp"/>
+    <TextView
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="177****0260"
+        android:gravity="center"
+        android:textSize="25sp"/>
+
+</LinearLayout>

@@ -10,7 +10,7 @@
         android:layout_width="3dp"
         android:layout_height="50dp"
         android:layout_marginLeft="40dp"
-        android:background="#21eb7c"/>
+        android:background="#5c5c5c"/>
 
     <ImageView
         android:id="@+id/iv_type"
@@ -35,7 +35,7 @@
         android:layout_height="50dp"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="5dp"
-        android:background="#21eb7c"/>
+        android:background="#5c5c5c"/>
 
     <RelativeLayout
         android:layout_toRightOf="@id/iv_type"

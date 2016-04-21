@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#56ddc8"
+    android:orientation="horizontal">
+
+    <Button
+        android:id="@+id/btn_titalbar_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="5dp"
+        android:text="菜单" />
+
+    <com.makeramen.segmented.SegmentedRadioGroup
+        android:id="@+id/rg_option"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:checkedButton="@+id/rb_timeline"
+        android:orientation="horizontal"
+        >
+
+        <RadioButton
+            android:id="@+id/rb_timeline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:gravity="center"
+            android:minHeight="33dip"
+            android:minWidth="40dip"
+            android:text="生活点滴"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/radio_colors" />
+
+        <RadioButton
+            android:id="@+id/rb_schedule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:gravity="center"
+            android:minHeight="33dip"
+            android:minWidth="40dip"
+            android:text="行程安排"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/radio_colors" />
+    </com.makeramen.segmented.SegmentedRadioGroup>
+
+    <Button
+        android:id="@+id/btn_titalbar_viewtype"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_margin="5dp"
+        android:text="视图" />
+
+</RelativeLayout>

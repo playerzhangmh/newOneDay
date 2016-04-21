@@ -55,7 +55,7 @@ public class FullImageActivity extends Activity {
                     @Override
                     public void onClick(View v) {
                         new AlertDialog.Builder(FullImageActivity.this)
-                                .setTitle("warning")
+                                .setTitle("提示")
                                 .setMessage("确认删除这条记录吗？")
                                 .setCancelable(false)
                                 .setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -68,6 +68,7 @@ public class FullImageActivity extends Activity {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
                                         mediaDao.deleteMediaInfo(mediainfo);
+                                        setResult(500);
                                         Toast.makeText(FullImageActivity.this, "已删除", Toast.LENGTH_SHORT).show();
                                         finish();
                                     }
@@ -141,7 +142,7 @@ public class FullImageActivity extends Activity {
             for (int i = 0; i< pics.length; i++)
             {
                 Pic1Page pic1Page = new Pic1Page(this);
-                bitmapUtils.display(pic1Page.iv_pic1page_show,sd_path+"/oneday/pic/"+pics[i]+".jpg");
+                bitmapUtils.display(pic1Page.iv_pic1page_show,sd_path+"/oneday/pic/"+pics[i]);
                 pic1Page.tv_pic1page_date.setText(mediainfo.getDate());
                 pic1Page.tv_fullimage_showtext.setText(mediainfo.getDesc());
                 pagelist.add(pic1Page);

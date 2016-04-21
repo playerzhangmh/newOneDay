@@ -13,7 +13,7 @@ public class CommenUtils {
         String path = "";
         //fileType img表示图片 audio表示音频 video表示视频
         String fileType = fileName.substring(0, 3);
-        String dir = PATH_SD+"/"+"oneday"+"/"+fileType+"/"+fileName+".jpg";
+        String dir = PATH_SD+"/"+"oneday"+"/"+fileType+"/"+fileName;
 
         return dir;
     }

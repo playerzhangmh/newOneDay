@@ -3,8 +3,11 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <include layout="@layout/titlebar"
+        android:id="@+id/titlebar"/>
 
     <ListView
+        android:layout_below="@id/titlebar"
         android:id="@+id/lv_timeline"
         android:divider="@null"
         android:layout_width="match_parent"

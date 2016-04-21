@@ -10,10 +10,12 @@ import android.view.View;
 import com.april.oneday.R;
 import com.april.oneday.fragment.ScheduleFragment;
 import com.april.oneday.fragment.TimeLineFragment;
+import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
+import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
 
 import java.io.File;
 
-public class MainActivity extends Activity {
+public class MainActivity extends SlidingFragmentActivity {
 
 
     private TimeLineFragment timeLineFragment;
@@ -21,7 +23,7 @@ public class MainActivity extends Activity {
     private FragmentManager fm;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -42,19 +44,6 @@ public class MainActivity extends Activity {
     }
 
 
-    /**
-     * 按钮点击事件
-     */
-    public void onClick(View view){
-        switch (view.getId()){
-            case R.id.btn_main_timeline://显示时间轴页面
-                showTimeline();
-                break;
-            case R.id.btn_main_schedule://显示行程规划页面
-                showSchedule();
-                break;
-        }
-    }
 
     /**
      * 显示时timeLineFragment,隐藏scheduleFragment

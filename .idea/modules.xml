@@ -5,6 +5,8 @@
       <module fileurl="file://$PROJECT_DIR$/OneDay.iml" filepath="$PROJECT_DIR$/OneDay.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/multi-image-selector/multi-image-selector.iml" filepath="$PROJECT_DIR$/multi-image-selector/multi-image-selector.iml" />
+      <module fileurl="file://$PROJECT_DIR$/segmentedradios/segmentedradios.iml" filepath="$PROJECT_DIR$/segmentedradios/segmentedradios.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sliding_menu_library/sliding_menu_library.iml" filepath="$PROJECT_DIR$/sliding_menu_library/sliding_menu_library.iml" />
     </modules>
   </component>
 </project>

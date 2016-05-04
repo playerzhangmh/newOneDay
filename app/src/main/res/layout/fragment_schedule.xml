@@ -2,33 +2,145 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <include layout="@layout/titlebar"
-        android:id="@+id/titlebar"/>
 
-    <TextView
+    <!--从titlebar copy过来的-->
+    <RelativeLayout
+        android:id="@+id/titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue_green"
+        android:orientation="horizontal">
+
+       <!-- <Button
+            android:id="@+id/btn_titalbar_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_margin="5dp"
+            android:text="菜单" />-->
+        <ImageButton
+            android:id="@+id/btn_titalbar_menu"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/reminder_menu" />
+        <TextView
+            android:id="@+id/tv_reminder_indicator"
+            android:layout_toRightOf="@id/btn_titalbar_menu"
+            android:layout_centerVertical="true"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="10sp"
+            android:text="天"
+            android:gravity="center"
+            android:visibility="gone"
+            android:textColor="@color/titlebar_text_checked"
+            android:background="@drawable/shape_circle_reminder_indicator"
+            />
+
+        <com.makeramen.segmented.SegmentedRadioGroup
+            android:id="@+id/rg_option"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="10dp"
+            android:checkedButton="@+id/rb_timeline"
+            android:orientation="horizontal"
+            >
+
+            <RadioButton
+                android:id="@+id/rb_timeline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:gravity="center"
+                android:minHeight="33dip"
+                android:minWidth="40dip"
+                android:text="生活点滴"
+                android:textSize="@dimen/titlebar_textsize"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/titlebar_text_checked" />
+
+            <RadioButton
+                android:id="@+id/rb_schedule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:gravity="center"
+                android:minHeight="33dip"
+                android:minWidth="40dip"
+                android:text="行程安排"
+                android:textSize="@dimen/titlebar_textsize"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/titlebar_text_unchecked" />
+        </com.makeramen.segmented.SegmentedRadioGroup>·············
+
+       <!-- <Button
+            android:id="@+id/btn_titalbar_viewtype"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_margin="5dp"
+            android:text="视图" />-->
+        <FrameLayout
+
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp">
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/btn_titalbar_viewtype"
+                android:background="@drawable/switch_schedule"/>
+            <ImageView
+                android:id="@+id/iv_titalbar_viewtype_reminder"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_gravity="center"
+                android:visibility="invisible"
+                android:background="@drawable/titlebar_reminder"/>
+            <ImageView
+                android:id="@+id/iv_titalbar_viewtype_routine"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_gravity="center"
+                android:background="@drawable/titlebar_routine"/>
+
+        </FrameLayout>
+
+
+    </RelativeLayout>
+
+
+    <!--<TextView
         android:layout_below="@id/titlebar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="我是行程计划界面"
-        android:textSize="30sp"/>
+        android:textSize="30sp"/>-->
 
-    <android.support.v4.view.ViewPager
+    <com.april.oneday.view.NoScrollViewPager
+        android:visibility="gone"
         android:layout_below="@id/titlebar"
         android:id="@+id/vp_schedule_reminder"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    </android.support.v4.view.ViewPager>
+    </com.april.oneday.view.NoScrollViewPager>
 
-    <android.support.v4.view.ViewPager
-        android:visibility="gone"
+    <com.april.oneday.view.NoScrollViewPager
         android:layout_below="@id/titlebar"
         android:id="@+id/vp_schedule_routine"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    </android.support.v4.view.ViewPager>
+    </com.april.oneday.view.NoScrollViewPager>
 
-    <ImageButton
+    <!--<ImageButton
         android:id="@+id/ib_createSchedule"
         android:background="@null"
         android:layout_width="50dp"
@@ -37,5 +149,16 @@
         android:scaleType="centerInside"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true" />-->
+
+    <ImageButton
+        android:id="@+id/ib_createSchedule"
+        android:layout_width="@dimen/button_add_size"
+        android:layout_height="@dimen/button_add_size"
+        android:background="@drawable/shape_circle_add"
+        android:layout_marginLeft="10dp"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/button_add"
+        android:layout_marginBottom="@dimen/button_add_marging_bottom"
+        />
 </RelativeLayout>

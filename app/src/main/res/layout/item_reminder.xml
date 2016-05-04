@@ -1,8 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="5dp">
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_timeline_point"
+        android:layout_width="@dimen/timeline_point_size"
+        android:layout_height="@dimen/timeline_point_size"
+        android:layout_marginLeft="25dp"
+        android:layout_centerVertical="true"
+        android:background="@drawable/shape_circle_timeline_point"/>
+
+    <!--<ImageView
+        android:id="@+id/iv_timeline_point"
+        android:layout_width="@dimen/timeline_point_size"
+        android:layout_height="@dimen/timeline_point_size"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/shape_circle_timeline_point"/>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/iv_timeline_point"
+        android:background="@drawable/dialog"
+        android:backgroundTint="@color/time_line_grey">
+        <ImageView
+            android:id="@+id/iv_img"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/sample"/>
+
+        <TextView
+            android:id="@+id/tv_comment"
+            android:layout_toRightOf="@id/iv_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:maxLines="2"
+            android:layout_marginTop="5dp"
+            android:text="Comment,Comment,Comment,Comment,Comment,Comment,"/>
+    </RelativeLayout>-->
+
+
+    <!--图标-->
+    <!--<ImageView
+        android:id="@+id/iv_schedule_icon"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="31dp"
+        android:background="@drawable/shape_ib_bg_blue"/>
+    &lt;!&ndash;图上的文字&ndash;&gt;
+    <TextView
+        android:id="@+id/tv_schedule_iconMonth"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="31dp"
+        android:gravity="center"
+        android:textColor="#fff"
+        android:textSize="11sp"
+        android:text="02"/>-->
+
+
+
     <!--reminder_menu -->
     <ImageButton
         android:id="@+id/ib_menu_more"
@@ -10,7 +72,7 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_centerVertical="true"
-        android:backgroundTint="@color/appthemecolor_grey"
+        android:backgroundTint="@color/time_line_grey"
         android:layout_gravity="center"
         android:scaleType="fitCenter"
         android:layout_marginLeft="15dp"
@@ -21,45 +83,58 @@
         android:id="@+id/tb_isActive"
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@id/ib_menu_more"
-        android:layout_width="50dp"
-        android:layout_height="30dp" />
+        android:layout_width="40dp"
+        android:layout_height="22dp" />
     <!--标题-->
     <TextView
         android:id="@+id/tv_reminder_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toLeftOf="@id/tb_isActive"
-        android:padding="5dp"
         android:text="TITLE标题"
         android:textColor="#000"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:maxLines="1"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_toRightOf="@+id/iv_timeline_point"
+        android:layout_marginLeft="30dp"
+         />
+    <!--描述-->
+    <TextView
+        android:id="@+id/tv_reminder_comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:text="Comment描述"
+        android:textColor="#4456ac"
+        android:textSize="12sp"
+        android:layout_below="@+id/tv_reminder_name"
+        android:layout_alignLeft="@+id/tv_reminder_name"
+        android:layout_toLeftOf="@id/tb_isActive"/>
+
+    <!--日期-->
+    <TextView
+        android:id="@+id/tv_reminder_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2016-05-01"
+        android:textSize="12sp"
+        android:textColor="@color/appthemecolor_blue"
+        android:layout_alignLeft="@+id/tv_reminder_name"
+        android:layout_marginTop="3dp"
+        android:layout_below="@id/tv_reminder_comment"/>
 
     <!--时间-->
     <TextView
         android:id="@+id/tv_reminder_time"
-        android:layout_below="@id/tv_reminder_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="15sp"
-        android:padding="5dp"
-        android:maxLines="1"
+        android:textSize="12sp"
         android:textColor="@color/appthemecolor_blue"
-        android:text="08:30"/>
+        android:text="08:30"
+        android:layout_toRightOf="@id/tv_reminder_date"
+        android:layout_marginLeft="10dp"
+        android:layout_alignBottom="@+id/tv_reminder_date"/>
 
-    <!--描述-->
-    <TextView
-        android:id="@+id/tv_reminder_comment"
-        android:layout_below="@id/tv_reminder_name"
-        android:layout_toRightOf="@id/tv_reminder_time"
-        android:layout_toLeftOf="@id/tb_isActive"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:maxLines="1"
-        android:text="Comment描述"/>
+
 
 
 

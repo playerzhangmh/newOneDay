@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners
+        android:topLeftRadius="16dp"
+        android:topRightRadius="0dp"
+        android:bottomLeftRadius="16dp"
+        android:bottomRightRadius="0dp"/>
+    <solid android:color="@color/titlebar_text_checked"/>
+    <stroke   android:width="1dp" android:color="@color/titlebar_text_checked" />
+
+    <size android:height="@dimen/radio_height" android:width="@dimen/radio_weith"/>
+</shape>
+
+
+

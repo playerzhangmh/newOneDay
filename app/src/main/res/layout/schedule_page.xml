@@ -1,18 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <!--  part 1  timeLine-->
     <ImageView
-        android:layout_width="5dp"
+        android:id="@+id/iv_schedule_timeLine"
+        android:layout_width="@dimen/time_line_width"
         android:layout_height="match_parent"
-        android:background="@color/appthemecolor_blue"
-        android:layout_marginLeft="40dp"
-        android:id="@+id/iv_schedule_timeLine"/>
+        android:layout_marginLeft="29dp"
+        android:background="@color/time_line_grey"
+        android:layout_marginBottom="@dimen/button_add_marging_bottom"/>
+
+    <!--如果没有内容，就显示一个空背景empty_home-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_white"
+        android:id="@+id/empty_home">
+
+
+        <TextView
+            android:id="@+id/tv_app_slogan"
+            android:textColor="@color/text_grey"
+            android:textSize="15sp"
+            android:text="Plan For Your Future!"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_centerInParent="true"/>
+        <ImageView
+            android:id="@+id/iv_appname"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@id/tv_app_slogan"
+            android:tint="@color/blue_green"
+            android:src="@drawable/app_name"/>
+
+
+    </RelativeLayout>
     <!-- part 2 routine -->
-    <ListView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/lv_schedule"/>
+        android:orientation="vertical"
+        android:id="@+id/ll_schedule"/>
 
-</FrameLayout>
+</RelativeLayout>

@@ -2,11 +2,12 @@
 apply plugin: 'com.android.library'
 
 dependencies {
-    compile 'com.facebook.rebound:rebound:0.3.+'
+    //compile 'com.facebook.rebound:rebound:0.3.+'
+    compile 'com.facebook.fresco:fresco:0.8.1'
 }
 
 android {
-    compileSdkVersion 23
+    compileSdkVersion 21
     buildToolsVersion '23.0.3'
 
     compileOptions {
@@ -15,8 +16,8 @@ android {
     }
 
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 23
+        minSdkVersion 16
+        targetSdkVersion 21
     }
 
     sourceSets {
@@ -36,4 +37,3 @@ android {
     }
 }
 
-//apply from: 'https://raw.github.com/chrisbanes/gradle-mvn-push/master/gradle-mvn-push.gradle'

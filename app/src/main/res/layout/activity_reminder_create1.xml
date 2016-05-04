@@ -10,12 +10,12 @@
     <TextView
         android:padding="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/title_height"
         android:text="请选择提醒的日期"
         android:textSize="20dp"
         android:textColor="#fff"
         android:gravity="center"
-        android:background="#009CFE"/>
+        android:background="@color/blue_green"/>
 
     <com.andexert.calendarlistview.library.DayPickerView
         android:id="@+id/pickerView"

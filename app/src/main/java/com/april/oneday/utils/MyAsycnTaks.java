@@ -29,7 +29,7 @@ public abstract class MyAsycnTaks {
 			public void run() {
 				doinBack();
 				handler.sendEmptyMessage(0);
-			};
+			}
 		}.start();
 	}
 }

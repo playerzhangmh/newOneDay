@@ -3,7 +3,37 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="appthemecolor_blue">#009CFE</color>
-    <color name="appthemecolor_grey">#cacaca</color>
+
+
+
+    <color name="background_white">#F3F4F6</color>
+    <color name="blue_green">#12B6F4</color>
+    <color name="text_grey">#A9AFB3</color>
+
+    <!--sliding menu-->
+    <color name="icon_grey">#818B94</color>
+    <color name="sliding_menu_background">#3F4B57</color>
+    <color name="text_grey_light">#E3E8E9</color>
+    <color name="divider_grey_dark">#35414D</color>
+
+    <!--time line--> <!-- 跳转选择颜色-->
+    <color name="time_line_grey">#b6b6b6</color>
+    <color name="time_line_point_white">#f2f2f2</color>
+
+
+    <!--title bar-->
+    <color name="titlebar_text_unchecked">#12B6F4</color>
+    <color name="titlebar_text_checked">#D1F0FB</color>
+
+    <color name="appthemecolor_blue">#12B6F4</color>
+    <color name="appthemecolor_grey">#dadbda</color>
     <color name="dividerLine">#50000000</color>
+
+    <!--view颜色-->
+    <color name="list_view_divider">#d0cece</color>
+
+    <color name="popupbg">#dadbdc</color>
+
+
+
 </resources>

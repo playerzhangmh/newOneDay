@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_small">
+    <ImageView
+        android:id="@+id/iv_timeline_point"
+        android:layout_width="@dimen/timeline_point_size"
+        android:layout_height="@dimen/timeline_point_size"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/shape_circle_timeline_point"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/iv_timeline_point"
+        android:background="@drawable/dialog"
+        android:backgroundTint="@color/time_line_grey">
+        <ImageView
+            android:id="@+id/iv_img"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/sample"/>
+
+        <TextView
+            android:id="@+id/tv_comment"
+            android:layout_toRightOf="@id/iv_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:maxLines="2"
+            android:layout_marginTop="5dp"
+            android:text="Comment,Comment,Comment,Comment,Comment,Comment,"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="15dp"
+        android:layout_toLeftOf="@id/iv_timeline_point">
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:layout_alignParentRight="true"
+            android:text="2016/4/23"/>
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_below="@id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:layout_alignParentRight="true"
+            android:text="11:48:30"/>
+    </RelativeLayout>
+
+
+</RelativeLayout>

@@ -1,23 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/background_white"
+    >
 
-    <include layout="@layout/titlebar"
-        android:id="@+id/titlebar"/>
+    <!--如果没有内容，就显示一个空背景empty_home-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/empty_home">
 
-    <include layout="@layout/titlebar"
-        android:id="@+id/titlebar"/>
+        <TextView
+            android:id="@+id/tv_app_slogan"
+            android:textColor="@color/text_grey"
+            android:textSize="15sp"
+            android:text="RECORD TODAY!"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_centerInParent="true"/>
+        <ImageView
+            android:id="@+id/iv_appname"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@id/tv_app_slogan"
+            android:tint="@color/blue_green"
+            android:src="@drawable/app_name"/>
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="@dimen/time_line_width"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:background="@color/time_line_grey"
+        android:id="@+id/iv_line"
+        android:layout_marginBottom="@dimen/button_add_marging_bottom"/>
+
+    <!--<include layout="@layout/bg_timeline"/>-->
     <ListView
         android:layout_below="@id/titlebar"
         android:id="@+id/lv_timeline"
         android:divider="@null"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent">
     </ListView>
-    <ImageButton
-        android:background="@null"
+
+   <!-- <ImageButton
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:src="@drawable/add"
@@ -28,5 +59,84 @@
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
         android:id="@+id/ib_timeline"
-        android:background="@drawable/bt_bg_select"/>
+        android:tint="@android:color/holo_blue_dark"
+        android:background="@drawable/bt_bg_select"/>-->
+
+
+    <ImageButton
+        android:layout_width="@dimen/button_add_size"
+        android:layout_height="@dimen/button_add_size"
+        android:background="@drawable/add_bt_bg_select"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/button_add"
+        android:id="@+id/ib_timeline"
+        android:layout_marginBottom="@dimen/button_add_marging_bottom"
+        />
+    <!--从titlebar copy过来的-->
+    <RelativeLayout
+        android:id="@+id/titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue_green"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btn_titalbar_menu"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="15dp"
+            android:padding="10dp"
+            android:background="@drawable/menu_sliding" />
+
+        <com.makeramen.segmented.SegmentedRadioGroup
+            android:id="@+id/rg_option"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="10dp"
+            android:checkedButton="@+id/rb_timeline"
+            android:orientation="horizontal"
+            >
+
+            <RadioButton
+                android:id="@+id/rb_timeline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:gravity="center"
+                android:minHeight="33dip"
+                android:minWidth="40dip"
+                android:text="生活点滴"
+                android:textSize="@dimen/titlebar_textsize"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/titlebar_text_unchecked" />
+
+            <RadioButton
+                android:id="@+id/rb_schedule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:gravity="center"
+                android:minHeight="33dip"
+                android:minWidth="40dip"
+                android:text="行程安排"
+                android:textSize="@dimen/titlebar_textsize"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/titlebar_text_checked" />
+        </com.makeramen.segmented.SegmentedRadioGroup>
+
+        <!--<ImageButton
+            android:id="@+id/btn_titalbar_viewtype"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/switch_schedule"/>-->
+
+    </RelativeLayout>
+
 </RelativeLayout>

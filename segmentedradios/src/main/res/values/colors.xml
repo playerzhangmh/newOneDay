@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--title bar-->
+    <color name="titlebar_text_unchecked">#12B6F4</color>
+    <color name="titlebar_text_checked">#ffffff</color>
+</resources>

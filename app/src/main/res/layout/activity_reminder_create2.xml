@@ -1,206 +1,209 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<!--<ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android">
+
+</ScrollView>-->
+<LinearLayout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+
+    <!-- 设置标题 -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="10dp">
+        android:layout_height="wrap_content">
+        <TextView style="@style/Reminder_Create2_title"
+            android:text="标题" />
+        <EditText style="@style/Reminder_Create2_choice"
+            android:id="@+id/et_reminder_title"
+            android:hint="写个标题吧！"
+            android:drawableRight="@null"
+            android:maxLines="2" />
+    </LinearLayout>
+    <!--<ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="@dimen/remind_create2_divider_marging"
+        android:background="@color/dividerLine"/>-->
 
 
-        <!-- 设置标题 -->
+    <!-- 设置描述 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView style="@style/Reminder_Create2_title"
+            android:text="描述" />
+        <EditText style="@style/Reminder_Create2_choice"
+            android:id="@+id/et_reminder_comment"
+            android:hint="写个描述吧！"
+            android:drawableRight="@null"
+            android:maxLines="2" />
+    </LinearLayout>
+
+
+    <!-- 设置日期 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView style="@style/Reminder_Create2_title"
+            android:text="日期" />
+        <TextView style="@style/Reminder_Create2_choice"
+            android:id="@+id/tv_reminder_date"
+            android:text="2016-5-28"
+            android:onClick="changeReminderDate" />
+    </LinearLayout>
+
+
+    <!-- 设置时间 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView style="@style/Reminder_Create2_title"
+            android:text="时间" />
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView style="@style/Reminder_Create2_title"
-                android:text="标题" />
-            <EditText style="@style/Reminder_Create2_choice"
-                android:id="@+id/et_reminder_title"
-                android:hint="写个标题吧！"
-                android:drawableRight="@null"
-                android:maxLines="2" />
-        </LinearLayout>
-        <!--<ImageView
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginBottom="@dimen/remind_create2_divider_marging"
-            android:background="@color/dividerLine"/>-->
-
-
-        <!-- 设置描述 -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView style="@style/Reminder_Create2_title"
-                android:text="描述" />
-            <EditText style="@style/Reminder_Create2_choice"
-                android:id="@+id/et_reminder_comment"
-                android:hint="写个描述吧！"
-                android:drawableRight="@null"
-                android:maxLines="2" />
-        </LinearLayout>
-
-        
-        <!-- 设置日期 -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView style="@style/Reminder_Create2_title"
-                android:text="日期" />
-            <TextView style="@style/Reminder_Create2_choice"
-                android:id="@+id/tv_reminder_date"
-                android:text="2016-5-28"
-                android:onClick="changeReminderDate" />
-        </LinearLayout>
-
-
-        <!-- 设置时间 -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView style="@style/Reminder_Create2_title"
-                android:text="时间" />
-            <LinearLayout
-                style="@style/Reminder_Create2_choice"
-                android:orientation="horizontal"
-                android:drawableRight="@null">
-                <TextView
-                    style="@style/Reminder_Create2_choice_time"
-                    android:id="@+id/tv_reminder_time_hour" />
-                <TextView
-                    style="@style/Reminder_Create2_choice_time"
-                    android:text=":"/>
-                <TextView
-                    style="@style/Reminder_Create2_choice_time"
-                    android:id="@+id/tv_reminder_time_minute" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <!--时间选择器-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <LinearLayout
-                android:id="@+id/rl_hour"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="15sp"
-                    android:scaleX="1.1"
-                    android:text="时"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:id="@+id/rl_minute"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="15sp"
-                    android:scaleX="1.1"
-                    android:text="分"/>
-            </LinearLayout>
-        </LinearLayout>
-
-
-
-
-        <!-- 设置重复模式 -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView style="@style/Reminder_Create2_title"
-                android:text="提醒重复" />
-            <TextView style="@style/Reminder_Create2_choice"
-                android:id="@+id/tv_reminder_repeatType"
-                android:text="无"
-                android:onClick="changeRepeatType" />
-        </LinearLayout>
-
-
-        <!-- 设置铃声 -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView style="@style/Reminder_Create2_title"
-                android:text="铃声" />
-            <TextView style="@style/Reminder_Create2_choice"
-                android:id="@+id/tv_reminder_ring"
-                android:text="铃声aa"
-                android:onClick="changeRing" />
-        </LinearLayout>
-
-
-        <!-- 设置震动类型 -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView style="@style/Reminder_Create2_title"
-                android:text="震动类型" />
-            <TextView style="@style/Reminder_Create2_choice"
-                android:id="@+id/tv_reminder_vabratetype"
-                android:text="长震动"
-                android:onClick="setVabrateType" />
-        </LinearLayout>
-
-
-        <!-- 设置震动次数 -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView style="@style/Reminder_Create2_title"
-                android:text="震动" />
-            <TextView style="@style/Reminder_Create2_choice"
-                android:id="@+id/tv_reminder_vabrate"
-                android:text="不震动"
-                android:onClick="setVabrate" />
-        </LinearLayout>
-
-
-        <!-- buttons -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <FrameLayout
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content">
-                <ImageButton
-                    android:layout_gravity="center"
-                    android:onClick="cancelReminder"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/layer_ib_bg_reminder_cancel"/>
-
-            </FrameLayout>
-            <FrameLayout
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content">
-                <ImageButton
-                    android:layout_gravity="center"
-                    android:onClick="createReminder"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/layer_ib_bg_reminder_create"/>
-            </FrameLayout>
-
+            style="@style/Reminder_Create2_choice"
+            android:orientation="horizontal"
+            android:drawableRight="@null">
+            <TextView
+                style="@style/Reminder_Create2_choice_time"
+                android:id="@+id/tv_reminder_time_hour" />
+            <TextView
+                style="@style/Reminder_Create2_choice_time"
+                android:text=":"/>
+            <TextView
+                style="@style/Reminder_Create2_choice_time"
+                android:id="@+id/tv_reminder_time_minute" />
 
         </LinearLayout>
 
     </LinearLayout>
-</ScrollView>
+
+    <!--时间选择器-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/rl_hour"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:scaleX="1.1"
+                android:text="时"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:id="@+id/rl_minute"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:scaleX="1.1"
+                android:text="分"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+    <!-- 设置重复模式 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView style="@style/Reminder_Create2_title"
+            android:text="提醒重复" />
+        <TextView style="@style/Reminder_Create2_choice"
+            android:id="@+id/tv_reminder_repeatType"
+            android:text="无"
+            android:onClick="changeRepeatType" />
+    </LinearLayout>
+
+
+    <!-- 设置铃声 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView style="@style/Reminder_Create2_title"
+            android:text="铃声" />
+        <TextView style="@style/Reminder_Create2_choice"
+            android:id="@+id/tv_reminder_ring"
+            android:text="铃声aa"
+            android:onClick="changeRing" />
+    </LinearLayout>
+
+
+    <!-- 设置震动类型 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView style="@style/Reminder_Create2_title"
+            android:text="震动类型" />
+        <TextView style="@style/Reminder_Create2_choice"
+            android:id="@+id/tv_reminder_vabratetype"
+            android:text="长震动"
+            android:onClick="setVabrateType" />
+    </LinearLayout>
+
+
+    <!-- 设置震动次数 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView style="@style/Reminder_Create2_title"
+            android:text="震动" />
+        <TextView style="@style/Reminder_Create2_choice"
+            android:id="@+id/tv_reminder_vabrate"
+            android:text="不震动"
+            android:onClick="setVabrate" />
+    </LinearLayout>
+
+
+    <!-- buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+            <ImageButton
+                android:layout_gravity="center"
+                android:onClick="cancelReminder"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/layer_ib_bg_reminder_cancel"/>
+
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+            <ImageButton
+                android:layout_gravity="center"
+                android:onClick="createReminder"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/layer_ib_bg_reminder_create"/>
+        </FrameLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Regis1Activity">
+
+    <ImageView
+        android:id="@+id/iv_login_logo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:tint="@color/blue_green"
+        android:src="@drawable/app_name"
+        android:layout_gravity="center" />
+
+    <LinearLayout
+        android:id="@+id/ll_phone"
+        android:paddingTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:padding="2dp"
+            android:tint="@color/blue_green"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="45dp"
+            android:src="@drawable/phone"/>
+        <requestFocus />
+        <EditText
+            android:id="@+id/phoneNum"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="45dp"
+            android:hint="  输入手机号"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_repass"
+        android:paddingTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:padding="2dp"
+            android:tint="@color/blue_green"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="45dp"
+            android:src="@drawable/yanzheng"/>
+        <EditText
+            android:id="@+id/et_reqcode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:hint="  输入验证码"/>
+        <Button
+            android:id="@+id/btn_register_reqcode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_pattern"
+            android:text=" 获 取 "
+            android:padding="8dp"
+            android:layout_marginRight="45dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_pass"
+        android:paddingTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:padding="2dp"
+            android:layout_gravity="center_vertical"
+            android:tint="@color/blue_green"
+            android:layout_marginLeft="45dp"
+            android:src="@drawable/lock"/>
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint=" 6-16位字符或下划线"
+            android:layout_marginLeft="10dp"
+            android:inputType="textPassword"
+            android:layout_marginRight="45dp"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_addr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        <TextView
+            android:id="@+id/regis_xieyi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:text="注册即同意《OneDay用户协议》" />
+
+        <TextView
+            android:id="@+id/regis_qes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:padding="20dp"
+            android:text="注册不了" />
+    </RelativeLayout>
+    <Button
+        android:id="@+id/regis_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_pattern"
+        android:text="完  成"
+        android:padding="8dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="45dp"
+        android:layout_marginLeft="45dp"/>
+</LinearLayout>

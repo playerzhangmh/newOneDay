@@ -1,6 +1,6 @@
 package com.april.oneday.activity;
 
-import android.app.Activity;
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
@@ -9,7 +9,6 @@ import android.os.Environment;
 import com.april.oneday.R;
 import com.april.oneday.fragment.ScheduleFragment;
 import com.april.oneday.fragment.TimeLineFragment;
-import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
 
 import java.io.File;
@@ -36,10 +35,9 @@ public class MainActivity extends SlidingFragmentActivity {
         scheduleFragment = new ScheduleFragment();
 
         transaction.add(R.id.fl_content, timeLineFragment);
-        transaction.add(R.id.fl_content, scheduleFragment);
+        transaction.add(R.id.fl_content, scheduleFragment,"scheduleFragment");
         transaction.hide(scheduleFragment);
         transaction.commit();
-
     }
 
 
@@ -52,7 +50,14 @@ public class MainActivity extends SlidingFragmentActivity {
         transaction.hide(scheduleFragment);
         transaction.show(timeLineFragment);
         transaction.commit();
-
+    }
+    /**
+     * 获得TimeLineFragment对象
+     */
+    public TimeLineFragment getTimeLineFragment() {
+        FragmentManager fm = getFragmentManager();
+        Fragment timeLineFragment = fm.findFragmentByTag("TimeLineFragment");
+        return (TimeLineFragment) timeLineFragment;
     }
 
 
@@ -64,7 +69,6 @@ public class MainActivity extends SlidingFragmentActivity {
         transaction.hide(timeLineFragment);
         transaction.show(scheduleFragment);
         transaction.commit();
-
     }
 
     /**
@@ -81,8 +85,17 @@ public class MainActivity extends SlidingFragmentActivity {
             imgDir.mkdir();
             audioDir.mkdir();
             videoDir.mkdir();
-
         }
+    }
+
+    /**
+     * add by jk
+     * @return ScheduleFragment
+     */
+    public ScheduleFragment getScheduleFragment(){
+        ScheduleFragment scheduleFragment = (ScheduleFragment) getFragmentManager().
+                findFragmentByTag("scheduleFragment");
+        return scheduleFragment;
     }
 
 }

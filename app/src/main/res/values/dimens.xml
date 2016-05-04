@@ -2,5 +2,32 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="remind_create2_divider_marging">5dp</dimen>
+
+    <dimen name="button_add_size">40dp</dimen>
+    <dimen name="time_line_width">2dp</dimen>
+    <dimen name="button_add_marging_bottom">5dp</dimen>
+    <dimen name="timeline_point_size">10dp</dimen>
+    <dimen name="margin_small">5dp</dimen>
+
+    <dimen name="timeline_date_size">20sp</dimen>
+    <dimen name="timeline_des_size">20sp</dimen>
+
+    <!--slidingmenu-->
+    <dimen name="leftmenu_text_size">18sp</dimen>
+    <dimen name="leftmenu_icon_size">25dp</dimen>
+    <!--sliding menu-->
+    <!--titlebar -->
+    <dimen name="titlebar_textsize">13sp</dimen>
+
+   <!-- android:layout_width="35dp"
+    android:layout_height="40dp"
+    android:layout_marginRight="30dp"-->
+   <!-- 跳转箭头-->
+    <dimen name="routine_arrow_width">35dp</dimen>
+    <dimen name="routine_arrow_height">40dp</dimen>
+    <dimen name="routine_arrow_marginRight">20dp</dimen>
+    <dimen name="routine_arrow_marginLeft">20dp</dimen>
+
+    <!--固定高度-->
+    <dimen name="title_height">50dp</dimen>
 </resources>

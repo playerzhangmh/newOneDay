@@ -91,11 +91,12 @@ public class ReminderdbDao {
         values.put("reminder_tag_color",iconBgColor);
         values.put("reminder_active",0);//默认插入数据时为0
         contentResolver.insert(urireminder, values);
+
     }
 
     //删除数据
-    public int deleteReminder(String reminder_name){
-        int delete = contentResolver.delete(urireminder, "reminder_name=?", new String[]{reminder_name});
+    public int deleteReminder(int id){
+        int delete = contentResolver.delete(urireminder, "id=?", new String[]{id+""});
         return delete;
     }
 
@@ -113,18 +114,26 @@ public class ReminderdbDao {
         values.put("reminder_vabrate_times",vabrate_times);
         values.put("reminder_tag_Rid",iconRid);
         values.put("reminder_tag_color",iconBgColor);
-        values.put("reminder_active",0);
+        values.put("reminder_active",reminder_active);
         int update = contentResolver.update(urireminder, values, "id=?", new String[]{remind_id + ""});
         return update;
     }
     //用户手动使其inactive
-    public void toInactive(int remind_id){
+    public void toInactive(int remind_id,int reminder_active){
         ContentValues values=new ContentValues();
-        values.put("reminder_active",1);
+        if(reminder_active==0){
+            values.put("reminder_active",1);
+        }else {
+            values.put("reminder_active",0);
+        }
         contentResolver.update(urireminder,values,"id=?", new String[]{remind_id + ""});
     }
+
     //根据repeat来修改active
     public void updateActive(ReminderInfo info){
+
+        ReminderDatadb helper=new ReminderDatadb(context,"reminder.db",null,VERSION);
+        SQLiteDatabase db = helper.getReadableDatabase();
         String reminder_date = info.getReminder_date();
         String reminder_time = info.getReminder_time();
         String newreminder_date="";
@@ -153,7 +162,7 @@ public class ReminderdbDao {
                 Log.v(TAG,newreminder_date+" "+newreminder_time);
                 break;
             case REPEAT_YEAR:
-                String year = ReminderUtis.getMonthdays(reminder_date.substring(0, reminder_date.indexOf("-")));
+                String year=reminder_date.substring(0, reminder_date.indexOf("-"));
                 String febDays = ReminderUtis.getFebDays(year);
                 String newdate3 ="";
                 if(febDays.equals("28")){
@@ -178,7 +187,8 @@ public class ReminderdbDao {
             values.put("reminder_time",newreminder_time);
             values.put("reminder_active",0);
         }
-        contentResolver.update(urireminder,values,"id=?",new String[]{info.getReminder_id()+""});
+        db.update("reminderInfo",values,"id=?",new String[]{info.getReminder_id()+""});
+        db.close();
     }
 
     //获取数据库中所有数据
@@ -191,6 +201,7 @@ public class ReminderdbDao {
             if(!list.contains(date)){
                 list.add(date);
             }
+            datequery.close();
         }
         for (String i:list){
             Cursor timequery = contentResolver.query(urireminder3, null,"reminder_date=?", new String[]{i}, null);
@@ -198,20 +209,27 @@ public class ReminderdbDao {
                 ReminderInfo info = getReminderInfo(timequery);
                 reminderInfos.add(info);
             }
+            timequery.close();
         }
         return reminderInfos;
     }
 
     //查找，根据日期
-    public List<ReminderInfo> getReminderItemByDate(String reminder_date){ //yy-MM-dd
+    public List<ReminderInfo> getReminderItemByDate(String reminder_date){ //yy-MM-dd or yy-MM or yy
         List<ReminderInfo> reminderInfos=new ArrayList<>();
-        Cursor query = contentResolver.query(urireminder3, null, "reminder_date=?", new String[]{reminder_date}, null);
+        ReminderDatadb helper=new ReminderDatadb(context,"reminder.db",null,VERSION);
+        SQLiteDatabase db = helper.getReadableDatabase();
+        Cursor query = db.rawQuery("select * from reminderInfo where reminder_date like '" + reminder_date + "%' order by reminder_time desc;", null);
+        //Cursor query = contentResolver.query(urireminder3, null, "reminder_date=?", new String[]{reminder_date}, null);
         while (query.moveToNext()){
             ReminderInfo info = getReminderInfo(query);
             reminderInfos.add(info);
         }
+        query.close();
+        db.close();
         return reminderInfos;
     }
+
     //精确时间查找，根据日期,date为日期毫秒，用于提醒用户使用
     public List<ReminderInfo> getReminderItemByDatedetail(long date){ //ms
         long datetop=date+5000l;
@@ -238,6 +256,8 @@ public class ReminderdbDao {
             ReminderInfo info = getReminderInfo(query);
             reminderInfos.add(info);
         }
+        query.close();
+        db.close();
         return reminderInfos;
     }
 
@@ -261,29 +281,43 @@ public class ReminderdbDao {
                 list.add(dates);
             }
         }
+        datecursor.close();
         for (String i:list){
             Cursor query = contentResolver.query(urireminder3, null, "reminder_date=?", new String[]{i}, null);
             while (query.moveToNext()){
                 ReminderInfo info = getReminderInfo(query);
                 reminderInfos.add(info);
             }
+            query.close();
         }
           //获取当天没过期的
-        String queryextra="select * from (select * from reminderInfo where reminder_date='"+date+"') as info where reminder_time between '"+time+"' and '23:59:59';";
+        String queryextra="select * from (select * from reminderInfo where reminder_date='"+date+"') as info where reminder_time between '"+time+"' and '23:59:59' order by reminder_time desc;";
         Cursor extracursor = db.rawQuery(queryextra, null);
         while (extracursor.moveToNext()){
             ReminderInfo reminderInfo = getReminderInfo(extracursor);
             extraList.add(reminderInfo);
         }
+        extracursor.close();
         Log.v(TAG,reminderInfos.size()+"");
         Log.v(TAG,extraList.size()+"");
-        if(inactiveOrdailyactiveflag==INACTIVE_FLAG){
-            reminderInfos.removeAll(extraList);
-            return reminderInfos;
+            if(inactiveOrdailyactiveflag==INACTIVE_FLAG){
+                List<ReminderInfo> deleteTag=new ArrayList<>();
+                for(ReminderInfo info:reminderInfos){
+                    for(ReminderInfo infos:extraList){
+                        if(info.toString().equals(infos.toString())){
+                            if(!deleteTag.contains(info)){
+                                deleteTag.add(info);
+                            }
+                        }
+                    }
+                }
+                reminderInfos.removeAll(deleteTag);
+                return reminderInfos;
         }
         if(inactiveOrdailyactiveflag==DAILYACTIVE_FLAG){
             return extraList;
         }
+        db.close();
         return null;
     }
 
@@ -295,7 +329,7 @@ public class ReminderdbDao {
         List<String> list=new ArrayList<>();
         ReminderDatadb helper=new ReminderDatadb(context,"reminder.db",null,VERSION);
         SQLiteDatabase db = helper.getReadableDatabase();
-        String queryname="select reminder_date from reminderInfo where reminder_name like '%"+reminder_name+"%' order by reminder_date desc";
+        String queryname="select reminder_date from reminderInfo where reminder_name like '%"+reminder_name+"%' order by reminder_date desc;";
         Cursor datequery=db.rawQuery(queryname,null);
         while (datequery.moveToNext()){
             String dates = datequery.getString(0);
@@ -303,14 +337,17 @@ public class ReminderdbDao {
                 list.add(dates);
             }
         }
+        datequery.close();
 
         for (String i:list){
-            Cursor query = contentResolver.query(urireminder3, null, "reminder_date=?", new String[]{i}, null);
+            Cursor query =db.rawQuery("select * from reminderInfo where reminder_name like '%"+reminder_name+"%' and reminder_date='"+i+"' order by reminder_time desc;",null);
             while (query.moveToNext()){
                 ReminderInfo info = getReminderInfo(query);
                 reminderInfos.add(info);
             }
+            query.close();
         }
+        db.close();
         return reminderInfos;
     }
 
@@ -346,6 +383,7 @@ public class ReminderdbDao {
                 list.add(dates);
             }
         }
+        cursor.close();
 
         for (String i:list) {
             Cursor daysquery = contentResolver.query(urireminder3, null, "reminder_date=?", new String[]{i}, null);
@@ -353,7 +391,9 @@ public class ReminderdbDao {
                 ReminderInfo info = getReminderInfo(daysquery);
                 reminderInfos.add(info);
             }
+            daysquery.close();
         }
+        db.close();
         return reminderInfos;
     }
 

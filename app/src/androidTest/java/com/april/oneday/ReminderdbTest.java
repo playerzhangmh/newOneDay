@@ -24,7 +24,7 @@ public class ReminderdbTest extends AndroidTestCase {
     public void testDelete(){
         ReminderdbDao dao=new ReminderdbDao(getContext());
 
-        dao.deleteReminder("eating");
+        //dao.deleteReminder("eating");
     }
     public void testUpdate(){
         ReminderdbDao dao=new ReminderdbDao(getContext());

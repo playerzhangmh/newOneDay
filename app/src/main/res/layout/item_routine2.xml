@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants"
+    android:paddingLeft="5dp"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp">
+
+
+    <RelativeLayout
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginLeft="5dp"
+        android:background="@drawable/routine3_bg1"
+        android:id="@+id/rl_routine2_background">
+
+        <ImageView
+            android:id="@+id/iv_routine2_item_imgtag"
+            android:layout_width="33dp"
+            android:layout_height="33dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/routine3_tag_bike"
+            />
+
+    </RelativeLayout>
+
+   <!-- <ImageView
+        android:id="@+id/iv_routine2_item_imgtag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/routine3_tag_bike"
+        android:background="@drawable/routine3_bg1"/>-->
+
+    <!--开始时间 ,时间标签-->
+    <LinearLayout
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_routine2_item_starttime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12:00 AM"
+            android:textSize="20sp"/>
+        <TextView
+            android:id="@+id/tv_routine2_item_texttag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="休息"
+            android:textSize="15sp"/>
+
+    </LinearLayout>
+
+    <!--占位置,没有任何显示效果-->
+    <View
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="10dp"/>
+
+    <!--持续时间,编辑按钮-->
+    <LinearLayout
+        android:id="@+id/ll_routine2_item_menu"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/tv_routine2_item_duration"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2小时"/>
+        <ImageView
+            android:focusable="false"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@color/appthemecolor_grey"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/menu_more"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

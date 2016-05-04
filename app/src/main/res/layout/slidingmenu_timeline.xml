@@ -1,42 +1,180 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <include layout="@layout/header_left_menu"
-        android:id="@+id/header_userinfo"/>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:background="#21eb7c"/>
+    <include
+        android:id="@+id/header_userinfo"
+        layout="@layout/header_left_menu" />
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#d7e7f7">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/sliding_menu_background"
+        android:orientation="vertical">
 
-
-        <Button
+        <LinearLayout
+            android:id="@+id/tv_leftmenu_userinfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="个人信息"
-            android:textSize="30sp"
-            android:gravity="center"/>
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="15dp">
 
-        <Button
+            <ImageView
+                android:layout_width="@dimen/leftmenu_icon_size"
+                android:layout_height="@dimen/leftmenu_icon_size"
+                android:layout_marginLeft="20dp"
+                android:gravity="center_vertical"
+                android:src="@drawable/leftmune_user_setting_icon"
+                android:tint="@color/icon_grey" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:gravity="center_vertical"
+                android:text="个人信息"
+                android:textColor="@color/text_grey_light"
+                android:textSize="@dimen/leftmenu_text_size" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/divider_grey_dark" />
+
+        <LinearLayout
+            android:id="@+id/tv_leftmenu_help"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="通用设置"
-            android:textSize="30sp"
-            android:gravity="center"/>
-        <Button
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="15dp">
+
+            <ImageView
+                android:layout_width="@dimen/leftmenu_icon_size"
+                android:layout_height="@dimen/leftmenu_icon_size"
+                android:layout_marginLeft="20dp"
+                android:gravity="center_vertical"
+                android:src="@drawable/leftmenu_help_icon"
+                android:tint="@color/icon_grey" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:gravity="center_vertical"
+                android:text="使用帮助"
+                android:textColor="@color/text_grey_light"
+                android:textSize="@dimen/leftmenu_text_size" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/divider_grey_dark" />
+
+
+        <LinearLayout
+            android:id="@+id/tv_leftmenu_aboutus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="意见反馈"
-            android:textSize="30sp"
-            android:gravity="center"/>
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="15dp">
+
+            <ImageView
+                android:layout_width="@dimen/leftmenu_icon_size"
+                android:layout_height="@dimen/leftmenu_icon_size"
+                android:layout_marginLeft="20dp"
+                android:backgroundTint="@color/icon_grey"
+                android:gravity="center_vertical"
+                android:src="@drawable/leftmune_aboutus_icon"
+                android:tint="@color/icon_grey" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:gravity="center_vertical"
+                android:text="关于我们"
+                android:textColor="@color/text_grey_light"
+                android:textSize="@dimen/leftmenu_text_size" />
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/divider_grey_dark" />
+
+        <LinearLayout
+            android:id="@+id/tv_leftmenu_telltous"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="15dp">
+
+            <ImageView
+                android:layout_width="@dimen/leftmenu_icon_size"
+                android:layout_height="@dimen/leftmenu_icon_size"
+                android:layout_marginLeft="20dp"
+                android:backgroundTint="@color/icon_grey"
+                android:gravity="center_vertical"
+                android:src="@drawable/leftmune_tellus_icon"
+                android:tint="@color/icon_grey" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:gravity="center_vertical"
+                android:text="意见反馈"
+                android:textColor="@color/text_grey_light"
+                android:textSize="@dimen/leftmenu_text_size" />
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/divider_grey_dark" />
+
+
     </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/sliding_menu_background"
+        android:gravity="center"
+        android:text="用户QQ群:78965213"
+        android:textColor="@color/text_grey_light"
+        android:textSize="15sp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="当前版本 V.1.0.0"
+        android:textSize="12sp"
+        android:textColor="@color/text_grey_light"
+        android:background="@color/sliding_menu_background"
+        android:gravity="center_horizontal"
+        android:paddingBottom="5dp"/>
 
 </LinearLayout>

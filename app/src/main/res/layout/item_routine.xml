@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants">
+
+
+
+    <!--小圆点-->
+    <ImageView
+        android:id="@+id/iv_timeline_point"
+        android:layout_width="@dimen/timeline_point_size"
+        android:layout_height="@dimen/timeline_point_size"
+        android:layout_marginLeft="25dp"
+        android:layout_centerVertical="true"
+        android:background="@drawable/shape_circle_timeline_point"/>
+
+    <!--图标-->
+
+
+    <!--routine_menu -->
+    <ImageButton
+        android:id="@+id/ib_menu_more"
+        android:layout_alignParentRight="true"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_centerVertical="true"
+        android:backgroundTint="@color/appthemecolor_grey"
+        android:layout_gravity="center"
+        android:scaleType="fitCenter"
+        android:layout_marginLeft="15dp"
+        android:background="@drawable/menu_more"/>
+
+    <!--toggle -->
+    <com.zcw.togglebutton.ToggleButton
+        android:id="@+id/tb_isActive"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@id/ib_menu_more"
+        android:layout_width="40dp"
+        android:layout_height="22dp" />
+    <!--标题-->
+    <TextView
+        android:id="@+id/tv_routine_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TITLE标题"
+        android:textColor="#000"
+        android:textSize="18sp"
+        android:maxLines="1"
+        android:layout_marginLeft="60dp"
+         />
+
+    <!--routine的时间周期-->
+    <TextView
+        android:id="@+id/tv_routine_cycles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:maxLines="1"
+        android:textColor="#4456ac"
+        android:text="15 days"
+        android:layout_alignLeft="@id/tv_routine_title"
+        android:layout_below="@+id/tv_routine_title"/>
+
+    <!--当前天数-->
+    <TextView
+        android:id="@+id/tv_routine_currentday"
+        android:layout_alignLeft="@id/tv_routine_cycles"
+        android:layout_toLeftOf="@id/tb_isActive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:layout_marginTop="3dp"
+        android:layout_below="@id/tv_routine_cycles"
+        android:textColor="@color/appthemecolor_blue"
+        android:textSize="12sp"
+        android:text="Day" />
+
+    <!--当前状态，如果未激活则显示inactive,激活状态则不显示-->
+    <TextView
+        android:id="@+id/tv_routine_isactive"
+        android:layout_alignLeft="@id/tv_routine_cycles"
+        android:layout_toLeftOf="@id/tb_isActive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:textColor="@color/appthemecolor_grey"
+        android:layout_marginTop="3dp"
+        android:text="inactive"
+        android:textSize="12sp"
+        android:layout_below="@id/tv_routine_cycles"
+        />
+
+
+
+</RelativeLayout>

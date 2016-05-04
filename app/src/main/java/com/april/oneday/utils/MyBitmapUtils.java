@@ -27,7 +27,10 @@ public class MyBitmapUtils {
     // 如果是放大图片，filter决定是否平滑，如果是缩小图片，filter无影响
     private static Bitmap createScaleBitmap(Bitmap src, int dstWidth,
                                             int dstHeight) {
-        Bitmap dst = Bitmap.createScaledBitmap(src, dstWidth, dstHeight, false);
+        Bitmap dst=null;
+        if (src!=null){
+            dst = Bitmap.createScaledBitmap(src, dstWidth, dstHeight, false);
+        }
         if (src != dst) { // 如果没有缩放，那么不回收
             src.recycle(); // 释放Bitmap的native像素数组
         }

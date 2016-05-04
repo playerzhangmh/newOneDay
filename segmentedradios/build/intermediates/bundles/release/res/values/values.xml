@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="titlebar_text_checked">#ffffff</color>
+    <color name="titlebar_text_unchecked">#12B6F4</color>
+    <declare-styleable name="CompoundButton"><attr name="android:button"/></declare-styleable>
+    <dimen name="radio_height">20dp</dimen>
+    <dimen name="radio_weith">65dp</dimen>
+    <string name="app_name">Segmented Radio Buttons</string>
+</resources>

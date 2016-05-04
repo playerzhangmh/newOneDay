@@ -29,8 +29,23 @@ public class Reminder_Create1 extends Activity implements com.andexert.calendarl
 
     @Override
     public void onDayOfMonthSelected(int year, int month, int day) {
-        Log.e("Day Selected", day + " / " + month + " / " + year);
-        String reminder_date = year+"-"+month+"-"+day;
+
+        String monthString;
+        String dayString ;
+        if (month+1<10){
+            monthString = "0"+(month+1);
+        }else{
+            monthString = ""+(month+1);
+        }
+
+        if (day<10){
+            dayString = "0"+day;
+        }else{
+            dayString = ""+day;
+        }
+
+        String reminder_date=year+"-"+monthString+"-"+dayString;
+        Log.e("日期",reminder_date);
 
         Intent intent = new Intent(this, Reminder_Create2.class);
         intent.putExtra("reminder_date",reminder_date);

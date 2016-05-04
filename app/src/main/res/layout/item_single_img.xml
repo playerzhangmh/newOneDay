@@ -1,71 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:oneday="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:weightSum="1">
-
-    <View
-        android:id="@+id/line_pre"
-        android:layout_width="3dp"
-        android:layout_height="100dp"
-        android:layout_marginLeft="40dp"
-        android:background="#5c5c5c"/>
+    android:padding="5dp">
     <ImageView
-        android:id="@+id/iv_type"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="30dp"
-        android:layout_below="@id/line_pre"
-        android:src="@drawable/img_icon"/>
-    <TextView
-        android:id="@+id/tv_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/iv_type"
-        android:layout_marginLeft="10dp"
-        android:text="2016.05.01"/>
-
-    <View
-        android:id="@+id/line_aft"
-        android:layout_below="@id/tv_time"
-        android:layout_width="3dp"
-        android:layout_height="100dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="5dp"
-        android:background="#5c5c5c"/>
-
-    <LinearLayout
-        android:layout_toRightOf="@id/iv_type"
-        android:layout_marginLeft="30dp"
+        android:id="@+id/iv_timeline_point"
+        android:layout_width="@dimen/timeline_point_size"
+        android:layout_height="@dimen/timeline_point_size"
+        android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:background="@drawable/shape_circle_timeline_point"/>
+
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_toLeftOf="@id/iv_timeline_point"
+        android:background="@drawable/dialog_left"
+        android:backgroundTint="@color/time_line_grey">
 
         <com.april.oneday.view.RoundImageView
             android:id="@+id/img"
-            android:layout_width="230dp"
-            android:layout_height="160dp"
-            android:layout_marginLeft="10dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:scaleType="centerCrop"
             oneday:borderRadius="10dp"
             oneday:type="round"
             android:src="@drawable/defaultpic"/>
 
-        <!--心情话语-->
         <TextView
             android:id="@+id/tv_content"
-            android:layout_width="match_parent"
+            android:layout_below="@id/img"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:maxWidth="160dp"
-            android:maxLines="1"
+            android:textSize="12sp"
+            android:layout_centerHorizontal="true"            android:maxLines="2"
             android:layout_marginTop="5dp"
-            android:layout_centerHorizontal="true"
-            android:text="天气不错,去公园耍耍吧"/>
+            android:text=",Comment,ghvfghghgfbhghghbyg"
+            android:maxWidth="60dp"/>
 
-    </LinearLayout>
+    </RelativeLayout>
 
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@id/iv_timeline_point">
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="2016/4/23"/>
+
+    </RelativeLayout>
 </RelativeLayout>

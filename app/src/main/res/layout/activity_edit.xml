@@ -6,109 +6,107 @@
     android:orientation="vertical"
     tools:context="com.april.oneday.activity.EditActivity">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:orientation="horizontal"
-        android:background="#666">
-        <ImageButton
+        android:background="@android:color/holo_blue_dark">
+
+        <Button
             android:layout_height="match_parent"
-            android:layout_width="20dp"
-            android:layout_margin="10dp"
-            android:src="@drawable/back1"
-            android:background="@drawable/bt_bg_select"
-            android:id="@+id/ib_edit_back"/>
-    </LinearLayout>
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:text="取消"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textColor="#FFF"
+            android:background="@android:color/transparent"
+            android:id="@+id/bt_edit_back"/>
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:hint="这一刻的想法..."
-        android:gravity="top"
-        android:background="@null"
-        android:layout_marginTop="10dp"
-        android:id="@+id/et_edit_des"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_marginTop="20dp">
-
-        <ImageView
-            android:layout_width="80dp"
+        <TextView
             android:layout_height="match_parent"
-            android:id="@+id/iv_edit_pic1"
-            android:layout_marginLeft="10dp"
-            android:src="@drawable/defaultpic" />
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="match_parent"
-            android:id="@+id/iv_edit_pic2"
-            android:layout_marginLeft="5dp"
-            android:src="@drawable/defaultpic"
-            android:visibility="invisible"/>
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="match_parent"
-            android:id="@+id/iv_edit_pic3"
-            android:layout_marginLeft="5dp"
-            android:src="@drawable/defaultpic"
-            android:visibility="invisible"/>
-    </LinearLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical">
-
-        <ImageButton
-            android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:background="@drawable/pc1"
-            android:layout_marginLeft="10dp"
-            android:id="@+id/ib_edit_pic"
-            android:layout_centerVertical="true"
-            />
-        <ImageButton
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:background="@drawable/record"
-            android:layout_marginLeft="5dp"
-            android:id="@+id/ib_edit_record"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@id/ib_edit_pic"/>
-
-        <ImageButton
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:background="@drawable/location"
-            android:layout_marginLeft="5dp"
-            android:id="@+id/ib_edit_location"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@id/ib_edit_record"/>
-
-        <ImageButton
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:background="@drawable/video"
-            android:layout_marginLeft="5dp"
-            android:id="@+id/ib_edit_video"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@id/ib_edit_location"/>
+            android:text="添加记录"
+            android:textColor="#FFF"
+            android:textSize="25sp"
+            android:background="@android:color/transparent"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"/>
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="45dp"
+            android:layout_height="match_parent"
+            android:text="保存"
             android:layout_alignParentRight="true"
-            android:background="@drawable/save_bt_selecter"
-            android:text="发布"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:layout_marginRight="2dp"
+            android:background="@android:color/transparent"
+            android:textColor="#FFF"
             android:id="@+id/bt_edit_save"
             />
     </RelativeLayout>
 
-    <TextView
+    <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tv_edit_location"/>
+        android:layout_height="120dp"
+        android:hint="这一刻的想法..."
+        android:gravity="top"
+        android:background="@null"
+        android:layout_margin="10dp"
+        android:id="@+id/et_edit_des"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="15dp">
+
+        <ImageButton
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:id="@+id/ib_edit_pic1"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/photo"
+            android:background="@android:color/transparent"
+            />
+        <ImageButton
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:id="@+id/ib_edit_pic2"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/photo"
+            android:visibility="invisible"
+            android:background="@android:color/transparent"
+            />
+        <ImageButton
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:id="@+id/ib_edit_pic3"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/photo"
+            android:visibility="invisible"
+            android:background="@android:color/transparent"
+            />
+    </LinearLayout>
+
+    <View
+        android:layout_height="1dp"
+        android:layout_width="match_parent"
+        android:background="@android:color/darker_gray"
+        android:layout_margin="5dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/app_logo"
+            android:layout_margin="10dp"
+            android:layout_centerInParent="true"
+            android:alpha="0.3"/>
+    </RelativeLayout>
+
+
 </LinearLayout>

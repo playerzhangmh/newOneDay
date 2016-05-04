@@ -1,1 +1,1 @@
-include ':app', ':multi-image-selector'
+include ':app', ':multi-image-selector', ':calendar2library', ':segmentedradios', ':sliding_menu_library', ':ToggleButtonLib', ':shareSDK', ':oneKeyShareNew', ':circleimageview', ':pickerview', ':indicaterlibrary'

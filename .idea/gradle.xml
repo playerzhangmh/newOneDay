@@ -5,22 +5,36 @@
       <GradleProjectSettings>
         <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleHome" value="F:\android-studio\gradle\gradle-2.10" />
+        <option name="gradleHome" value="C:\Program Files\Android\Android Studio\gradle\gradle-2.10" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/ToggleButtonLib" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/calendar2library" />
+            <option value="$PROJECT_DIR$/circleimageview" />
+            <option value="$PROJECT_DIR$/indicaterlibrary" />
             <option value="$PROJECT_DIR$/multi-image-selector" />
+            <option value="$PROJECT_DIR$/oneKeyShareNew" />
+            <option value="$PROJECT_DIR$/pickerview" />
             <option value="$PROJECT_DIR$/segmentedradios" />
+            <option value="$PROJECT_DIR$/shareSDK" />
             <option value="$PROJECT_DIR$/sliding_menu_library" />
           </set>
         </option>
         <option name="myModules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/ToggleButtonLib" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/calendar2library" />
+            <option value="$PROJECT_DIR$/circleimageview" />
+            <option value="$PROJECT_DIR$/indicaterlibrary" />
             <option value="$PROJECT_DIR$/multi-image-selector" />
+            <option value="$PROJECT_DIR$/oneKeyShareNew" />
+            <option value="$PROJECT_DIR$/pickerview" />
             <option value="$PROJECT_DIR$/segmentedradios" />
+            <option value="$PROJECT_DIR$/shareSDK" />
             <option value="$PROJECT_DIR$/sliding_menu_library" />
           </set>
         </option>

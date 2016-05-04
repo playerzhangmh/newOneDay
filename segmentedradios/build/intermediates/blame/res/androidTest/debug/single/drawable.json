@@ -1,0 +1,34 @@
+[
+    {
+        "merged": "D:\\Androidws\\finaloneday\\OneDay\\segmentedradios\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\segment_radio_left.xml",
+        "source": "D:\\Androidws\\finaloneday\\OneDay\\segmentedradios\\build\\intermediates\\bundles\\debug\\res\\drawable\\segment_radio_left.xml"
+    },
+    {
+        "merged": "D:\\Androidws\\finaloneday\\OneDay\\segmentedradios\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\segment_button.xml",
+        "source": "D:\\Androidws\\finaloneday\\OneDay\\segmentedradios\\build\\intermediates\\bundles\\debug\\res\\drawable\\segment_button.xml"
+    },
+    {
+        "merged": "D:\\Androidws\\finaloneday\\OneDay\\segmentedradios\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\titlebar_radio_gery_right_unfocus.xml",
+        "source": "D:\\Androidws\\finaloneday\\OneDay\\segmentedradios\\build\\intermediates\\bundles\\debug\\res\\drawable\\titlebar_radio_gery_right_unfocus.xml"
+    },
+    {
+        "merged": "D:\\Androidws\\finaloneday\\OneDay\\segmentedradios\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\segment_radio_middle.xml",
+        "source": "D:\\Androidws\\finaloneday\\OneDay\\segmentedradios\\build\\intermediates\\bundles\\debug\\res\\drawable\\segment_radio_middle.xml"
+    },
+    {
+        "merged": "D:\\Androidws\\finaloneday\\OneDay\\segmentedradios\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\segment_radio_right.xml",
+        "source": "D:\\Androidws\\finaloneday\\OneDay\\segmentedradios\\build\\intermediates\\bundles\\debug\\res\\drawable\\segment_radio_right.xml"
+    },
+    {
+        "merged": "D:\\Androidws\\finaloneday\\OneDay\\segmentedradios\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\titlebar_radio_blue_left_focus.xml",
+        "source": "D:\\Androidws\\finaloneday\\OneDay\\segmentedradios\\build\\intermediates\\bundles\\debug\\res\\drawable\\titlebar_radio_blue_left_focus.xml"
+    },
+    {
+        "merged": "D:\\Androidws\\finaloneday\\OneDay\\segmentedradios\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\titlebar_radio_blue_right_focus.xml",
+        "source": "D:\\Androidws\\finaloneday\\OneDay\\segmentedradios\\build\\intermediates\\bundles\\debug\\res\\drawable\\titlebar_radio_blue_right_focus.xml"
+    },
+    {
+        "merged": "D:\\Androidws\\finaloneday\\OneDay\\segmentedradios\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\titlebar_radio_gery_left_unfocus.xml",
+        "source": "D:\\Androidws\\finaloneday\\OneDay\\segmentedradios\\build\\intermediates\\bundles\\debug\\res\\drawable\\titlebar_radio_gery_left_unfocus.xml"
+    }
+]

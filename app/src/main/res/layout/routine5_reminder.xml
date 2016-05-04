@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_height"
+        android:background="@color/blue_green"
+        android:id="@+id/rl_routines1_title">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/routine1_back"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"
+            android:onClick="routine5_back"
+            android:id="@+id/ib_routine1_back"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/routine1_confirm"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:onClick="routine5_confirm"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/ib_routine1_back"
+            android:layout_centerVertical="true"
+            android:text="添加提醒信息"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:id="@+id/rl_routines5_addbell"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="提示音"
+            android:textSize="22sp"
+            android:layout_marginLeft="10dp"
+            android:layout_centerVertical="true"/>
+
+        <ImageView
+            android:layout_width="@dimen/routine_arrow_width"
+            android:layout_height="@dimen/routine_arrow_height"
+            android:layout_marginRight="@dimen/routine_arrow_marginRight"
+            android:backgroundTint="@color/time_line_grey"
+            android:background="@drawable/routine_add"
+            android:layout_alignParentRight="true"
+            android:id="@+id/iv_routine5_button"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/iv_routine5_button"
+            android:layout_marginRight="10dp"
+            android:text="巴黎浪漫"
+            android:layout_centerVertical="true"
+            android:textSize="18sp"
+            android:id="@+id/tv_routine5_music"/>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/list_view_divider"
+        />
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:id="@+id/rl_routines5_addremindertime"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="提前提醒时间"
+            android:textSize="22sp"
+            android:layout_marginLeft="10dp"
+            android:layout_centerVertical="true"/>
+
+        <ImageView
+            android:layout_width="@dimen/routine_arrow_width"
+            android:layout_height="@dimen/routine_arrow_height"
+            android:layout_marginRight="@dimen/routine_arrow_marginRight"
+            android:backgroundTint="@color/time_line_grey"
+            android:background="@drawable/routine_add"
+            android:layout_alignParentRight="true"
+            android:id="@id/iv_routine5_button"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/iv_routine5_button"
+            android:layout_marginRight="10dp"
+            android:text="10分钟"
+            android:layout_centerVertical="true"
+            android:textSize="18sp"
+            android:id="@+id/tv_routine5_remindertime"/>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/list_view_divider"
+        />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:id="@+id/rl_routines5_addvibrate"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="是否振动"
+            android:textSize="22sp"
+            android:layout_marginLeft="10dp"
+            android:layout_centerVertical="true"/>
+
+        <ImageView
+            android:layout_width="@dimen/routine_arrow_width"
+            android:layout_height="@dimen/routine_arrow_height"
+            android:layout_marginRight="@dimen/routine_arrow_marginRight"
+            android:backgroundTint="@color/time_line_grey"
+            android:background="@drawable/routine_add"
+            android:layout_alignParentRight="true"
+            android:id="@id/iv_routine5_button"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/iv_routine5_button"
+            android:layout_marginRight="10dp"
+            android:text="是"
+            android:layout_centerVertical="true"
+            android:textSize="18sp"
+            android:id="@+id/tv_routine5_vibrate"/>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/list_view_divider"
+        />
+
+</LinearLayout>

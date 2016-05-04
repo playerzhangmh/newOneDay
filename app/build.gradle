@@ -6,16 +6,22 @@ android {
 
     defaultConfig {
         applicationId "com.april.oneday"
-        minSdkVersion 14
+        minSdkVersion 16
         targetSdkVersion 21
         versionCode 1
         versionName "1.0"
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+}
+
+repositories{
+    flatDir{
+        dirs 'libs' //就是你放aar的目录地址
     }
 }
 
@@ -23,6 +29,17 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:21.0.3'
+    compile name: 'SMSSDK-2.0.2', ext: 'aar'
     compile files('libs/xUtils-2.6.14.jar')
     compile project(':multi-image-selector')
+    compile project(':calendar2library')
+    compile project(':segmentedradios')
+    compile project(':sliding_menu_library')
+    compile project(':circleimageview')
+    compile project(':ToggleButtonLib')
+    compile project(':oneKeyShareNew')
+    compile 'com.android.support:multidex:1.0.1'
+    compile project(':pickerview')
+    compile project(':indicaterlibrary')
+    compile project(path: ':indicaterlibrary')
 }

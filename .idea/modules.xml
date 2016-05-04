@@ -3,9 +3,16 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/OneDay.iml" filepath="$PROJECT_DIR$/OneDay.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ToggleButtonLib/ToggleButtonLib.iml" filepath="$PROJECT_DIR$/ToggleButtonLib/ToggleButtonLib.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/calendar2library/calendar2library.iml" filepath="$PROJECT_DIR$/calendar2library/calendar2library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/circleimageview/circleimageview.iml" filepath="$PROJECT_DIR$/circleimageview/circleimageview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/indicaterlibrary/indicaterlibrary.iml" filepath="$PROJECT_DIR$/indicaterlibrary/indicaterlibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/multi-image-selector/multi-image-selector.iml" filepath="$PROJECT_DIR$/multi-image-selector/multi-image-selector.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oneKeyShareNew/oneKeyShareNew.iml" filepath="$PROJECT_DIR$/oneKeyShareNew/oneKeyShareNew.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pickerview/pickerview.iml" filepath="$PROJECT_DIR$/pickerview/pickerview.iml" />
       <module fileurl="file://$PROJECT_DIR$/segmentedradios/segmentedradios.iml" filepath="$PROJECT_DIR$/segmentedradios/segmentedradios.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shareSDK/shareSDK.iml" filepath="$PROJECT_DIR$/shareSDK/shareSDK.iml" />
       <module fileurl="file://$PROJECT_DIR$/sliding_menu_library/sliding_menu_library.iml" filepath="$PROJECT_DIR$/sliding_menu_library/sliding_menu_library.iml" />
     </modules>
   </component>

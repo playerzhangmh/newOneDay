@@ -2,31 +2,35 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:roundimg="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:background="#15d6dd"
-    android:layout_height="wrap_content">
+    android:descendantFocusability="blocksDescendants"
+    android:background="@drawable/leftmenu_user_header_bg"
+    android:layout_height="200dp">
 
     <com.april.oneday.view.RoundImageView
-        android:layout_margin="10dp"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:id="@+id/riv_leftnenu_headicon"
+        android:layout_marginTop="25dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_gravity="center"
         roundimg:type="round"
         roundimg:borderRadius="50dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/defaultpic"/>
+        android:src="@drawable/leftmenu_user_header_default"/>
     <TextView
-        android:layout_margin="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="昵称"
-        android:gravity="center"
-        android:textSize="25sp"/>
-    <TextView
-        android:layout_margin="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="177****0260"
-        android:gravity="center"
-        android:textSize="25sp"/>
 
+        android:id="@+id/tv_leftmenu_nickname"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="点击设置昵称"
+        android:textColor="#ffffff"
+        android:gravity="center"
+        android:textSize="15sp"/>
+    <TextView
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="One Day"
+        android:textColor="#ffffff"
+        android:gravity="center"/>
 </LinearLayout>

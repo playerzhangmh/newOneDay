@@ -1,34 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.april.oneday">
 
+    <!-- SD卡读写权限 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_APN_SETTINGS" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
-    <!--SD卡读写权限-->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <!--振动权限-->
+    <uses-permission android:name="android.permission.VIBRATE"/>
+
+    <!--监听开关机权限-->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
+
 
     <application
+
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/icon_oneday"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".activity.MainActivity">
+        android:theme="@style/AppTheme"
+        tools:replace="android:icon,android:theme">
+        <activity android:name=".activity.MainActivity"
+            android:icon="@drawable/icon_oneday"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.EditActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name="me.nereo.multi_image_selector.MultiImageSelectorActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.FullImageActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.mob.tools.MobUIShell"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden|adjustResize"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.LoginActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.RegisActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.SplashActivity"
+            android:screenOrientation="portrait"
+            android:label="OneDay"
+            android:icon="@drawable/icon_oneday">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".activity.EditActivity"/>
-        <activity android:name="me.nereo.multi_image_selector.MultiImageSelectorActivity"/>
-        <activity android:name=".activity.FullImageActivity"/>
+        <activity android:name=".activity.GuideActivity"
+            android:screenOrientation="portrait"/>
 
         <provider
-            android:authorities="com.oneday.reminder"
-            android:name=".provider.Reminder_ContentProvider"/>
+            android:name=".provider.Reminder_ContentProvider"
+            android:authorities="com.oneday.reminder" />
 
+        <activity android:name=".activity.AboutOurActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.UpdatepasswdActivity"
+            android:screenOrientation="portrait"></activity>
+
+        <activity android:name=".activity.SetNickNameActivity"/>
+        <activity android:name=".activity.UserInfoSettingActivity"/>
+        <activity android:name=".activity.Routine_Create2"
+            android:theme="@style/Theme.PageIndicatorDefaults"/>
+        <activity android:name=".activity.Reminder_Create1"/>
+        <activity android:name=".activity.Reminder_Create2"
+            android:icon="@drawable/icon_oneday"/>
+        <activity android:name=".activity.Routine_Create3"/>
+        <activity android:name=".activity.Routine_Create4"/>
+        <activity android:name=".activity.Routine_Create5"/>
+        <activity android:name=".activity.Routine_Create1"/>
+
+        <service android:name=".service.MyRoutinesService">
+        </service>
+        <service android:name=".service.MyRemindersService">
+        </service>
+
+
+        <receiver android:name=".receiver.BootCompletereceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <category android:name="android.intent.category.HOME" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_SHUTDOWN" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

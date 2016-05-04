@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <!--  tools:context="com.example.administrator.routines.Routine_Create1"-->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_height"
+        android:background="@color/blue_green"
+        android:id="@+id/rl_routines1_title">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/routine1_back"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"
+            android:onClick="routine1_back"
+            android:id="@+id/ib_routine1_back"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/routine1_confirm"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:onClick="routine1_confirm"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/ib_routine1_back"
+            android:layout_centerVertical="true"
+            android:text="New Routine"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            />
+
+    </RelativeLayout>
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="50dp">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="请输入新的日程提醒"
+            android:textStyle="italic"
+            android:id="@+id/et_routine1_name"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="日程提醒天数"
+            android:layout_marginTop="30dp"/>
+
+
+           <SeekBar
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:id="@+id/sb_routine1_seek"
+               android:layout_centerVertical="true"
+               />
+
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center"
+                android:text="1"
+                android:layout_margin="20dp"
+                android:textColor="#fff"
+                android:gravity="center"
+                android:background="@drawable/routine1_days_bg"
+                android:textSize="50sp"
+                android:id="@+id/tv_routines_days"/>
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,17 +1,12 @@
 package com.april.oneday.impl;
 
+import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageButton;
-import android.widget.TextView;
 
-import com.april.oneday.R;
 import com.april.oneday.activity.MainActivity;
 import com.april.oneday.base.ScheduleBasePage;
 import com.april.oneday.bean.ReminderInfo;
 import com.april.oneday.dao.ReminderdbDao;
-import com.zcw.togglebutton.ToggleButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,19 +16,30 @@ import java.util.List;
  */
 public class ScheReminderDay extends ScheduleBasePage {
 
+    private static final String TAG = "ScheReminderDay";
     private List<ReminderInfo> daylyActiveReminders;
     private List<ReminderInfo> inactiveReminders;
-    private int activityReminderSize;
-    private ArrayList<ReminderInfo> reminderInfos;
+
+    protected ArrayList<ReminderInfo> reminderInfos;
+//    protected ReminderDayAdapter reminderDayAdapter;
+//    protected PopupWindow popupWindow;
 
     public ScheReminderDay(MainActivity mActivity) {
         super(mActivity);
     }
 
     @Override
-    protected void initData() {
+    public void initData() {
 
-        reminderInfos = new ArrayList<>();
+        if (reminderInfos==null){
+            reminderInfos = new ArrayList<>();
+        }
+        else{//如果是用于刷新页面，则要把数据集清空，再重新获取
+            Log.v(TAG,"reminderInfo!=null");
+            reminderInfos.clear();
+            daylyActiveReminders.clear();
+            inactiveReminders.clear();
+        }
 
         daylyActiveReminders = mReminderdbDao.getInactiveReminders(ReminderdbDao.DAILYACTIVE_FLAG);
         inactiveReminders = mReminderdbDao.getInactiveReminders(ReminderdbDao.INACTIVE_FLAG);
@@ -41,93 +47,42 @@ public class ScheReminderDay extends ScheduleBasePage {
         reminderInfos.addAll(daylyActiveReminders);
         reminderInfos.addAll(inactiveReminders);
 
-        activityReminderSize = daylyActiveReminders.size();
+/*        Log.v(TAG,"daylyActiveReminders"+daylyActiveReminders.toString());
+        Log.v(TAG,"inactiveReminders"+inactiveReminders.toString());
+        Log.v(TAG,"reminderInfos"+reminderInfos.toString());*/
 
-        lv_schedule.setAdapter(new ReminderDayAdapter());
+
+        /*//如果查不出info则不显示时间轴
+        if (reminderInfos.size()==0){
+            iv_schedule_timeLine.setVisibility(View.INVISIBLE);
+            TextView textView = new TextView(mActivity);
+            textView.setText("您还没有添加任何日程安排！");
+            textView.setTextSize(20);
+            ll_schedule.removeAllViews();
+            ll_schedule.addView(textView);
+            return;
+        }
+
+
+        ReminderListViewUtils reminderListViewUtils = new ReminderListViewUtils(mActivity);
+        View reminderDayListView = reminderListViewUtils.createReminderDayListView(reminderInfos);
+
+        ll_schedule.removeAllViews();
+        ll_schedule.addView(reminderDayListView);*/
+
+
+        //清空数据
+        ll_schedule.removeAllViews();
+
+        /*//给listview添加一个header
+        View header_data = getReminderDateHeader(DATE_DAY);
+        ll_schedule.addView(header_data);*/
+
+        //判断数据集是否为空，为空则提示“没有内容”，否则把数据装载到listview
+        View contentView = judgeReminderInfo(reminderInfos);
+        ll_schedule.addView(contentView);
 
 
     }
-
-    class ReminderDayAdapter extends BaseAdapter{
-        @Override
-        public int getCount() {
-            return reminderInfos.size();
-        }
-
-        @Override
-        public Object getItem(int i) {
-            return null;
-        }
-
-        @Override
-        public long getItemId(int i) {
-            return 0;
-        }
-
-        @Override
-        public View getView(int position, View view, ViewGroup viewGroup) {
-            View v;
-            Holder holder;
-            if (view!=null){
-                v=view;
-                holder = (Holder) v.getTag();
-            }else {
-                v = View.inflate(mActivity, R.layout.item_reminder, null);
-
-                TextView tv_reminder_name = (TextView) v.findViewById(R.id.tv_reminder_name);
-                TextView tv_reminder_comment = (TextView) v.findViewById(R.id.tv_reminder_comment);
-                TextView tv_reminder_time = (TextView) v.findViewById(R.id.tv_reminder_time);
-                ToggleButton tb_isActive = (ToggleButton) v.findViewById(R.id.tb_isActive);
-                ImageButton ib_menu_more = (ImageButton) v.findViewById(R.id.ib_menu_more);
-
-                holder = new Holder(tv_reminder_name,tv_reminder_comment,tv_reminder_time,tb_isActive,ib_menu_more);
-            }
-            final ReminderInfo reminderInfo = reminderInfos.get(position);
-            holder.tv_reminder_name.setText(reminderInfo.getReminder_name());
-            holder.tv_reminder_comment.setText(reminderInfo.getReminder_comment());
-            holder.tv_reminder_time.setText(reminderInfo.getReminder_time().substring(0,5));
-
-            holder.tb_isActive.setOnToggleChanged(new ToggleButton.OnToggleChanged() {
-                @Override
-                public void onToggle(boolean on) {
-                    //用户手动切换状态,不管它的repeatType是什么
-                    if (reminderInfo.isActive()==0){
-                        reminderInfo.setActive(1);
-                    }else{
-                        reminderInfo.setActive(0);
-                    }
-
-                }
-            });
-
-            if (position<activityReminderSize){
-                //当为激活时,为开启状态
-                holder.tb_isActive.setToggleOn();
-            }else {
-                //当为过期时，为关闭状态
-                holder.tb_isActive.setToggleOff();
-            }
-
-            return v;
-        }
-
-        class Holder{
-            TextView tv_reminder_name ;
-            TextView tv_reminder_comment;
-            TextView tv_reminder_time ;
-            ToggleButton tb_isActive ;
-            ImageButton ib_menu_more ;
-
-            public Holder(TextView tv_reminder_name, TextView tv_reminder_comment,
-                          TextView tv_reminder_time, ToggleButton tb_isActive, ImageButton ib_menu_more) {
-                this.tv_reminder_name = tv_reminder_name;
-                this.tv_reminder_comment = tv_reminder_comment;
-                this.tv_reminder_time = tv_reminder_time;
-                this.tb_isActive = tb_isActive;
-                this.ib_menu_more = ib_menu_more;
-            }
-        }
-    }
-
 
 }

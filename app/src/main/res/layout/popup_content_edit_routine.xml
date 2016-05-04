@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/popbg"
+    android:backgroundTint="@color/popupbg"
+    android:gravity="center">
+    <TextView
+        style="@style/PopupWindow_TextView_bg"
+        android:id="@+id/bt_popup_rename"
+        android:clickable="true"
+        android:text="重命名" />
+    <TextView
+        android:id="@+id/bt_popup_clone"
+        android:clickable="true"
+        style="@style/PopupWindow_TextView_bg"
+        android:text="复制" />
+    <TextView
+        style="@style/PopupWindow_TextView_bg"
+        android:id="@+id/bt_popup_delete"
+        android:clickable="true"
+        android:text="删除" />
+    <TextView
+        android:id="@+id/bt_popup_change_currentday"
+        android:clickable="true"
+        style="@style/PopupWindow_TextView_bg"
+        android:text="修改当日" />
+    <TextView
+        android:id="@+id/bt_popup_change_cancel"
+        android:clickable="true"
+        style="@style/PopupWindow_TextView_bg"
+        android:text="取消" />
+
+</LinearLayout>

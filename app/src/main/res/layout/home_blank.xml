@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_white">
+
+    <TextView
+        android:id="@+id/tv_app_slogan"
+        android:textColor="@color/text_grey"
+        android:textSize="15sp"
+        android:text="Record Taday,Remember Your Time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_centerInParent="true"/>
+    <ImageView
+        android:id="@+id/iv_appname"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/tv_app_slogan"
+        android:tint="@color/blue_green"
+        android:src="@drawable/app_name"/>
+
+
+    <ImageButton
+        android:layout_width="@dimen/button_add_size"
+        android:layout_height="@dimen/button_add_size"
+        android:background="@drawable/shape_circle_add"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/button_add"
+        android:layout_marginBottom="@dimen/button_add_marging_bottom"
+        />
+
+</RelativeLayout>

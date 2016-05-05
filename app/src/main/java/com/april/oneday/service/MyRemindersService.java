@@ -24,12 +24,7 @@ import com.april.oneday.utils.ServiceUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-/*import com.example.administrator.myproject4.MainActivity;
-import com.example.administrator.myproject4.R;
-import com.example.administrator.myproject4.bean.ReminderInfo;
-import com.example.administrator.myproject4.dao.ReminderdbDao;
 
-import java.util.List;*/
 
 /**
  * Created by Administrator on 2016/4/18.
@@ -85,8 +80,8 @@ public class MyRemindersService extends IntentService {
         while (true){
 
             try {
-                //每隔3s获取一次当前时间
-                Thread.sleep(7000);
+                //每隔4s获取一次当前时间
+                Thread.sleep(4000);
                 notification();
 
             } catch (InterruptedException e) {
@@ -95,88 +90,6 @@ public class MyRemindersService extends IntentService {
         }
 
     }
-
-  /*  *//**
-     * 获取通知栏通知的标题，内容，应用图标，通知提示音的uri,手机振动次数，手机振动类型
-     * 根据获取的振动次数和振动类型动态调整振动信息
-     * 并在AndroidManifest.xml中增加振动权限
-     * 向用户发送通知
-     *//*
-    public void notification() {
-
-        Log.i("MyRemindService","2");
-
-        //获取当前时间
-        ReminderdbDao reminderdbDao = new ReminderdbDao(getApplicationContext());
-        long l = System.currentTimeMillis();
-        List<ReminderInfo> reminderItemByDatedetail = reminderdbDao.getReminderItemByDatedetail(l);
-
-        if (reminderItemByDatedetail.size() != 0) {
-
-            Log.i("ItemByDatedetail.size",reminderItemByDatedetail.size()+"");
-
-            for (int x = 0; x < reminderItemByDatedetail.size(); x++) {
-
-                Log.i("MyRemindService","3");
-
-                ReminderInfo reminderInfo = reminderItemByDatedetail.get(x);
-                reminderdbDao.updateActive(reminderInfo);
-
-                *//**
-                 * 获取数据
-                 *//*
-                //获取通知栏reminder_name--》标题+reminder_name
-                String reminder_name = reminderInfo.getReminder_name();
-
-                //获取通知栏reminder_comment--》时间内容
-                String reminder_comment = reminderInfo.getReminder_comment();
-
-                //获取通知栏ring_path--》铃声uri
-                String ring_path = reminderInfo.getRing_path();
-                Uri uri = Uri.parse("android.resource://" + getPackageName() + "/" + ring_path);
-
-                //获取通知栏vibrate_type--》长时间振动(1)还是短时间振动(0)
-                vibrate_type = reminderInfo.getVabrate_type();
-
-                //获取通知栏vibrate_times--》振动次数
-                vabrate_times = reminderInfo.getVabrate_times();
-
-                //获取振动信息
-                long[] vibrateInformation = getVibrateInformation();
-
-                //获取通知栏图标--》即应用图标
-
-
-                *//**
-                 * 通知栏添加数据
-                 *//*
-                //1.获取NotificationManager
-                nm = (NotificationManager) getSystemService(getApplicationContext().NOTIFICATION_SERVICE);
-                //2.定义Notification
-                Intent intent = new Intent(this, Reminder_Create2.class);//TODO
-                pi = PendingIntent.getActivity(getApplicationContext(), marker, intent, PendingIntent.FLAG_CANCEL_CURRENT);
-                builder = new Notification.Builder(getApplicationContext())
-                        .setContentTitle("提醒: " + reminder_name)
-                        .setContentText(reminder_comment)
-                        .setSmallIcon(R.drawable.add)//TODO
-                        .setPriority(Notification.PRIORITY_MAX)
-                        .setSound(uri)
-                        .setVibrate(vibrateInformation)
-                        .setContentIntent(pi)
-                        .build();
-
-                Log.i("MyRemindService","4");
-
-                //设置点击跳转Activity时自动取消
-                builder.flags = Notification.FLAG_AUTO_CANCEL;
-                nm.notify(marker, builder);
-            }
-        }
-    }
-*/
-
-
-
     /**
      * 调整后
      */
@@ -323,7 +236,8 @@ public class MyRemindersService extends IntentService {
         IntentFilter filter=new IntentFilter();
         filter.addAction("routine_want_recover");
         registerReceiver(receiver,filter);
-        return START_STICKY;
+        flags=START_STICKY;
+        return super.onStartCommand(intent,flags,startId);
     }
 
     BroadcastReceiver receiver=new BroadcastReceiver() {

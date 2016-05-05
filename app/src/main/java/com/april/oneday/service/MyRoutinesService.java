@@ -60,6 +60,8 @@ public class MyRoutinesService extends IntentService {
 
     @Override
     public void onCreate() {
+        Log.v(TAG,"onCreate");
+
         //用一个集合去装已经通知过的details
         outlist = new ArrayList<>();
         super.onCreate();
@@ -75,88 +77,14 @@ public class MyRoutinesService extends IntentService {
         while (true) {
 
             try {
-
                 //每隔1s获取一次当前时间
                 Thread.sleep(7000);
                 notification();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
-
-
-
         }
-
     }
-
-  /*  //通知栏通知消息
-    public void notification(){
-
-        //获取当前时间
-        RoutinesDao routinesDao = new RoutinesDao(getApplicationContext());
-        long l = System.currentTimeMillis();
-        List<RoutinesDetailInfo> ringlist = routinesDao.getRinglist();
-        for(int x=0;x<ringlist.size();x++){
-            RoutinesDetailInfo routinesDetailInfo = ringlist.get(x);
-
-            *//**
-             * 获取数据
-             *//*
-            //获取通知栏标题--》日程提醒
-            int detail_id = routinesDetailInfo.getDetail_id();
-            String routine_title = routinesDao.getTitileById(detail_id);
-
-            //获取通知栏信息--》日程提醒标签名
-            String routine_tag = routinesDetailInfo.getIcon_name();
-
-            //是否振动提示--》是否开启振动
-            detail_vabrate = routinesDetailInfo.getDetail_vabrate();
-            long[] vibrateInformation = getVibrateInformation();
-
-            //获取提示音uri--》uri
-            String detail_ringpath = routinesDetailInfo.getDetail_ringpath();
-            Uri uri = Uri.parse("android.resource://" + getPackageName() + "/" + detail_ringpath);
-
-            //获取应用图标添加到通知栏
-
-            *//**
-             * 获取数据
-             *//*
-            //1.获取NotificationManager
-            nm = (NotificationManager) getSystemService(getApplicationContext().NOTIFICATION_SERVICE);
-
-            //2.定义Notification
-            Intent intent = new Intent(this, MainActivity.class);
-            pi = PendingIntent.getActivity(getApplicationContext(),marker, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-            builder = new Notification.Builder(getApplicationContext())
-                    .setContentTitle("Oneday新日程提醒： "+routine_title)
-                    .setContentText(routine_tag+"时间到了。")
-                    .setSmallIcon(R.drawable.text1)
-                    //通知优先级
-                    .setPriority(Notification.PRIORITY_MAX)
-                    .setAutoCancel(true)
-                    .setSound(uri)
-                    .setVibrate(vibrateInformation)
-                    .setContentIntent(pi)
-                    .setTicker("收到来自Oneday发来的新提醒~")
-                    //设置内容下边的一段小文字
-                    .setSubText("——拒绝拖延,及时行动")
-                    .build();
-
-
-            //当点击通知栏通知的时候，通知栏自动销毁
-            builder.flags=Notification.FLAG_AUTO_CANCEL;
-
-            nm.notify(3, builder);
-
-
-
-        }
-
-    }
-    */
-
 
     /**
      *  通知栏通知消息--》调整后
@@ -272,10 +200,12 @@ public class MyRoutinesService extends IntentService {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        Log.v(TAG,"onStartCommand");
         IntentFilter filter=new IntentFilter();
         filter.addAction("reminder_want_recover");
         registerReceiver(receiver,filter);
-        return START_STICKY;
+        flags=START_STICKY;
+        return super.onStartCommand(intent,flags,startId);
     }
 
     BroadcastReceiver receiver=new BroadcastReceiver() {
